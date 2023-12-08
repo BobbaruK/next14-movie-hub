@@ -7,7 +7,7 @@ interface Props {
 }
 
 const MoviePage = ({ params: { slug } }: Props) => {
-  return <div>Movie: {slug}</div>;
+  return <h1>Movie: {slug}</h1>;
 };
 
 export default MoviePage;

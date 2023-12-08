@@ -27,7 +27,7 @@ const Header = () => {
               <li>
                 <details>
                   <summary>Movies</summary>
-                  <ul className="p-2">
+                  <ul className="p-2 z-10">
                     <li>
                       <Link href="/movie">Popular</Link>
                     </li>
@@ -46,7 +46,7 @@ const Header = () => {
               <li>
                 <details>
                   <summary>TV Shows</summary>
-                  <ul className="p-2">
+                  <ul className="p-2 z-10">
                     <li>
                       <Link href="/tv">Popular</Link>
                     </li>
@@ -65,7 +65,7 @@ const Header = () => {
             <li>
               <details>
                 <summary>People</summary>
-                <ul className="p-2">
+                <ul className="p-2 z-10">
                   <li>
                     <Link href="/person">Popular</Link>
                   </li>
@@ -83,7 +83,7 @@ const Header = () => {
             <li>
               <details>
                 <summary>Movies</summary>
-                <ul className="p-2">
+                <ul className="p-2 z-10">
                   <li>
                     <Link href="/movie">Popular</Link>
                   </li>
@@ -102,7 +102,7 @@ const Header = () => {
             <li>
               <details>
                 <summary>TV Shows</summary>
-                <ul className="p-2">
+                <ul className="p-2 z-10">
                   <li>
                     <Link href="/tv">Popular</Link>
                   </li>
@@ -121,7 +121,7 @@ const Header = () => {
             <li>
               <details>
                 <summary>People</summary>
-                <ul className="p-2">
+                <ul className="p-2 z-10">
                   <li>
                     <Link href="/person">Popular</Link>
                   </li>
