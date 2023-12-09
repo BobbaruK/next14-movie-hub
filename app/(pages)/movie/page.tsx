@@ -1,5 +1,7 @@
-import { Card } from "../components/Card";
-import useMovies from "../hooks/useMovies";
+import { Card } from "@/app/components/Card";
+import useMovies from "@/app/hooks/useMovies";
+
+
 
 const PopularMoviePage = async () => {
   const movies = await useMovies();
@@ -17,7 +19,7 @@ const PopularMoviePage = async () => {
           <h3>Language</h3>
         </div>
         <div className="lg:basis-3/4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3">
             {movies?.results?.map((movie) => (
               <Card key={movie.id} movie={movie} />
             ))}

@@ -8,6 +8,7 @@ const Card = ({ movie }: Props) => {
   const style = {
     "--value": movie.vote_average * 10,
     "--thickness": "3px",
+		"--size": "2rem",
   } as React.CSSProperties;
 
   return (
@@ -16,6 +17,7 @@ const Card = ({ movie }: Props) => {
         <img
           src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`}
           alt="Shoes"
+          className="w-full"
         />
       </figure>
       <div className="card-body p-4 flex justify-between relative pt-7">
@@ -23,10 +25,8 @@ const Card = ({ movie }: Props) => {
           className={[
             "radial-progress",
 
-            "w-9",
-            "h-9",
             "absolute",
-            "-top-5",
+            "-top-6",
 
             "bg-black",
             `text-${
@@ -37,7 +37,7 @@ const Card = ({ movie }: Props) => {
                 : "error"
             }`,
             "border-2",
-            "border-primary",
+            "border-slate-100",
             "text-sm",
           ].join(" ")}
           style={style}
