@@ -16,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" data-theme="light">
+    <html lang="en" data-theme="coffee">
       <body className={inter.className}>
         <Header />
         <main>{children}</main>
