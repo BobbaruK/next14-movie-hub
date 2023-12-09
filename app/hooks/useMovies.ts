@@ -2,7 +2,7 @@ import { TMDB_AUTHORIZATION } from "../constants";
 import { MoviesResponse } from "../types/movie";
 
 const useMovies = async () => {
-  const res = await fetch("https://api.themoviedb.org/3/discover/movies", {
+  const res = await fetch("https://api.themoviedb.org/3/discover/movie", {
     headers: {
       accept: "application/json",
       Authorization: TMDB_AUTHORIZATION,
