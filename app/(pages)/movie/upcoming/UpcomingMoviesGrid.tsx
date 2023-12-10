@@ -1,7 +1,7 @@
 "use client";
 
 import { Card } from "@/app/components/Card";
-import { NOW_PLAYING_MOVIES_KEY } from "@/app/constants";
+import { POPULAR_MOVIES_KEY, UPCOMING_MOVIES_KEY } from "@/app/constants";
 import { MoviesResponse } from "@/app/types/movies/MoviesResponse";
 import moviesFetchConfig from "@/app/utils/moviesFetchConfig";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
@@ -13,25 +13,24 @@ interface Props {
   sort_by: string;
 }
 
-const NowPlayingMoviesGrid = ({
+const UpcomingMoviesGrid = ({
   page,
   with_original_language,
   sort_by,
 }: Props) => {
   const moviesConfig = moviesFetchConfig(page, with_original_language, sort_by);
 
-  // const apiClient = new APIClient<MoviesResponse>(DISCOVER_NOW_PLAYING_MOVIES_ENDPOINT);
+  // const apiClient = new APIClient<MoviesResponse>(UPCOMING_MOVIES_ENDPOINT);
 
   const { data, error, isLoading } = useQuery<MoviesResponse>({
-    queryKey: [NOW_PLAYING_MOVIES_KEY, moviesConfig.params],
+    queryKey: [UPCOMING_MOVIES_KEY, moviesConfig.params],
     // queryFn: () => apiClient.getAll(moviesConfig),
     placeholderData: keepPreviousData,
   });
 
   const router = useRouter();
 
-  if (error)
-    throw new Error("Something went wrong while fetching 'Now Playing Movies'");
+  if (error) throw new Error("Something went wrong while fetching 'Popular Movies'");
 
   if (isLoading)
     return <div className="alert alert-info">Loading movies...</div>;
@@ -44,7 +43,7 @@ const NowPlayingMoviesGrid = ({
           disabled={moviesConfig.params.page <= 1}
           onClick={() =>
             router.push(
-              `/movie/now-playing?page=${moviesConfig.params.page - 1}
+              `/movie?page=${moviesConfig.params.page - 1}
               ${
                 with_original_language
                   ? "&with_original_language=" + with_original_language
@@ -60,7 +59,7 @@ const NowPlayingMoviesGrid = ({
           className="btn btn-primary"
           onClick={() => {
             router.push(
-              `/movie/now-playing?page=${Number(moviesConfig.params.page) + 1}${
+              `/movie?page=${Number(moviesConfig.params.page) + 1}${
                 with_original_language
                   ? "&with_original_language=" + with_original_language
                   : ""
@@ -79,4 +78,4 @@ const NowPlayingMoviesGrid = ({
   );
 };
 
-export default NowPlayingMoviesGrid;
+export default UpcomingMoviesGrid;
