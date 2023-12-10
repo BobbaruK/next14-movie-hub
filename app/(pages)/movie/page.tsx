@@ -1,11 +1,11 @@
-import { DISCOVER_POPULAR_MOVIES_ENDPOINT } from "@/app/constants";
+import { POPULAR_MOVIES_ENDPOINT, POPULAR_MOVIES_KEY } from "@/app/constants";
 import APIClient from "@/app/services/tmdbApiClient";
 import { MoviesResponse } from "@/app/types/movies/MoviesResponse";
 import moviesFetchConfig from "@/app/utils/moviesFetchConfig";
 import {
-  dehydrate,
   HydrationBoundary,
   QueryClient,
+  dehydrate,
 } from "@tanstack/react-query";
 import PopularMoviesGrid from "./PopularMoviesGrid";
 
@@ -28,11 +28,11 @@ const PopularMoviePage = async ({
     sort_by
   );
 
-  const apiClient = new APIClient<MoviesResponse>(DISCOVER_POPULAR_MOVIES_ENDPOINT);
+  const apiClient = new APIClient<MoviesResponse>(POPULAR_MOVIES_ENDPOINT);
 
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery({
-    queryKey: ["popular_movies", moviesConfig.params],
+    queryKey: [POPULAR_MOVIES_KEY, moviesConfig.params],
     queryFn: () => apiClient.getAll(moviesConfig),
   });
 

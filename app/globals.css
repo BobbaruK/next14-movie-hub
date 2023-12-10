@@ -17,3 +17,17 @@
     @apply max-w-screen-xl mx-auto px-4;
   }
 }
+
+@layer utilities {
+  .voteBad {
+    @apply text-error;
+  }
+
+  .voteOk {
+    @apply text-warning;
+  }
+
+  .voteGood {
+    @apply text-success;
+  }
+}

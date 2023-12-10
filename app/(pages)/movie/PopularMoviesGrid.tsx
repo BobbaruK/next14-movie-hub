@@ -1,6 +1,7 @@
 "use client";
 
 import { Card } from "@/app/components/Card";
+import { POPULAR_MOVIES_KEY } from "@/app/constants";
 import { MoviesResponse } from "@/app/types/movies/MoviesResponse";
 import moviesFetchConfig from "@/app/utils/moviesFetchConfig";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
@@ -22,14 +23,14 @@ const PopularMoviesGrid = ({
   // const apiClient = new APIClient<MoviesResponse>(DISCOVER_MOVIES_ENDPOINT);
 
   const { data, error, isLoading } = useQuery<MoviesResponse>({
-    queryKey: ["popular_movies", moviesConfig.params],
+    queryKey: [POPULAR_MOVIES_KEY, moviesConfig.params],
     // queryFn: () => apiClient.getAll(moviesConfig),
     placeholderData: keepPreviousData,
   });
 
   const router = useRouter();
 
-  if (error) throw new Error("Something went wrong with the API client");
+  if (error) throw new Error("Something went wrong while fetching 'Popular Movies'");
 
   if (isLoading)
     return <div className="alert alert-info">Loading movies...</div>;
