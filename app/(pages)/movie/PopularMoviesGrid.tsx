@@ -12,13 +12,17 @@ interface Props {
   sort_by: string;
 }
 
-const MoviesGrid = ({ page, with_original_language, sort_by }: Props) => {
+const PopularMoviesGrid = ({
+  page,
+  with_original_language,
+  sort_by,
+}: Props) => {
   const moviesConfig = moviesFetchConfig(page, with_original_language, sort_by);
 
   // const apiClient = new APIClient<MoviesResponse>(DISCOVER_MOVIES_ENDPOINT);
 
   const { data, error, isLoading } = useQuery<MoviesResponse>({
-    queryKey: ["movies", moviesConfig.params],
+    queryKey: ["popular_movies", moviesConfig.params],
     // queryFn: () => apiClient.getAll(moviesConfig),
     placeholderData: keepPreviousData,
   });
@@ -73,4 +77,4 @@ const MoviesGrid = ({ page, with_original_language, sort_by }: Props) => {
   );
 };
 
-export default MoviesGrid;
+export default PopularMoviesGrid;
