@@ -1,6 +1,6 @@
 "use client";
 
-import { Card } from "@/app/components/Card";
+import { MovieCard } from "@/app/components/Card/Movie";
 import { TOP_RATED_MOVIES_KEY } from "@/app/constants";
 import { MoviesResponse } from "@/app/types/movies/MoviesResponse";
 import moviesFetchConfig from "@/app/utils/moviesFetchConfig";
@@ -69,7 +69,7 @@ const TopRatedMoviesGrid = ({
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3">
         {data?.results?.map((movie) => (
-          <Card key={movie.id} movie={movie} />
+          <MovieCard key={movie.id} movie={movie} />
         ))}
       </div>
     </>
