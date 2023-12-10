@@ -30,7 +30,8 @@ const PopularMoviesGrid = ({
 
   const router = useRouter();
 
-  if (error) throw new Error("Something went wrong while fetching 'Popular Movies'");
+  if (error)
+    throw new Error("Something went wrong while fetching 'Popular Movies'");
 
   if (isLoading)
     return <div className="alert alert-info">Loading movies...</div>;
@@ -52,6 +53,7 @@ const PopularMoviesGrid = ({
           }>
           Prev
         </button>
+        {/* <span className="loading loading-infinity loading-md"></span> */}
         {data?.page} of {data?.total_pages} / {data?.total_results} results
         <button
           className="btn btn-primary"

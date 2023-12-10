@@ -8,6 +8,7 @@ import {
   dehydrate,
 } from "@tanstack/react-query";
 import PopularMoviesGrid from "./PopularMoviesGrid";
+import { Suspense } from "react";
 
 interface Props {
   searchParams: {
@@ -49,6 +50,7 @@ const PopularMoviePage = async ({
           <h3>Language</h3>
         </div>
         <div className="lg:basis-3/4">
+          <Suspense fallback={<p>MUIEEE</p>}>dsads</Suspense>
           <HydrationBoundary state={dehydrate(queryClient)}>
             <PopularMoviesGrid
               page={pageNumber}
