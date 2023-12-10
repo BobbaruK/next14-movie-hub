@@ -41,13 +41,11 @@ const TopRatedMoviesGrid = ({
           disabled={moviesConfig.params.page <= 1}
           onClick={() =>
             router.push(
-              `/movie/top-rated?page=${moviesConfig.params.page - 1}
-              ${
+              `/movie/top-rated?page=${moviesConfig.params.page - 1}${
                 with_original_language
                   ? "&with_original_language=" + with_original_language
                   : ""
-              }
-              ${sort_by ? "&sort_by=" + sort_by : ""}`
+              }${sort_by ? "&sort_by=" + sort_by : ""}`
             )
           }>
           Prev

@@ -1,6 +1,6 @@
 "use client";
 
-import { TVShowsCard } from "@/app/components/Card/TVShows";
+import { TVShowsCard } from "@/app/components/Card/TVShow";
 import { POPULAR_TVSHOWS_KEY } from "@/app/constants";
 import { TVShowsResponse } from "@/app/types/tv/TVShowsResponse";
 import moviesFetchConfig from "@/app/utils/moviesFetchConfig";
@@ -43,13 +43,11 @@ const PopularTVShowsGrid = ({
           disabled={tvShowConfig.params.page <= 1}
           onClick={() =>
             router.push(
-              `/tv?page=${tvShowConfig.params.page - 1}
-              ${
+              `/tv?page=${Number(tvShowConfig.params.page) - 1}${
                 with_original_language
                   ? "&with_original_language=" + with_original_language
                   : ""
-              }
-              ${sort_by ? "&sort_by=" + sort_by : ""}`
+              }${sort_by ? "&sort_by=" + sort_by : ""}`
             )
           }>
           Prev
