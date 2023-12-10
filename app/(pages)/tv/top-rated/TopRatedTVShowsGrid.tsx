@@ -1,7 +1,7 @@
 "use client";
 
 import { TVShowsCard } from "@/app/components/Card/TVShow";
-import { AIRING_TODAY_TVSHOWS_KEY } from "@/app/constants";
+import { TOP_RATED_TVSHOWS_KEY } from "@/app/constants";
 import { TVShowsResponse } from "@/app/types/tv/TVShowsResponse";
 import moviesFetchConfig from "@/app/utils/moviesFetchConfig";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
@@ -13,7 +13,7 @@ interface Props {
   sort_by: string;
 }
 
-const AiringTodayTVShowsGrid = ({
+const TopRatedTVShowsGrid = ({
   page,
   with_original_language,
   sort_by,
@@ -23,14 +23,17 @@ const AiringTodayTVShowsGrid = ({
   // const apiClient = new APIClient<MoviesResponse>(DISCOVER_MOVIES_ENDPOINT);
 
   const { data, error, isLoading } = useQuery<TVShowsResponse>({
-    queryKey: [AIRING_TODAY_TVSHOWS_KEY, tvShowConfig.params],
+    queryKey: [TOP_RATED_TVSHOWS_KEY, tvShowConfig.params],
     // queryFn: () => apiClient.getAll(moviesConfig),
     placeholderData: keepPreviousData,
   });
 
   const router = useRouter();
 
-  if (error) throw new Error("Something went wrong while fetching 'Airing Today TV Shows'");
+  if (error)
+    throw new Error(
+      "Something went wrong while fetching 'Top Rated TV Shows'"
+    );
 
   if (isLoading)
     return <div className="alert alert-info">Loading movies...</div>;
@@ -43,7 +46,7 @@ const AiringTodayTVShowsGrid = ({
           disabled={tvShowConfig.params.page <= 1}
           onClick={() =>
             router.push(
-              `/tv/airing-today?page=${Number(tvShowConfig.params.page) - 1}${
+              `/tv/top-rated?page=${Number(tvShowConfig.params.page) - 1}${
                 with_original_language
                   ? "&with_original_language=" + with_original_language
                   : ""
@@ -57,7 +60,7 @@ const AiringTodayTVShowsGrid = ({
           className="btn btn-primary"
           onClick={() => {
             router.push(
-              `/tv/airing-today?page=${Number(tvShowConfig.params.page) + 1}${
+              `/tv/top-rated?page=${Number(tvShowConfig.params.page) + 1}${
                 with_original_language
                   ? "&with_original_language=" + with_original_language
                   : ""
@@ -76,4 +79,4 @@ const AiringTodayTVShowsGrid = ({
   );
 };
 
-export default AiringTodayTVShowsGrid;
+export default TopRatedTVShowsGrid;

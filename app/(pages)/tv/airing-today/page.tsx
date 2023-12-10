@@ -1,4 +1,4 @@
-import { AIRING_TODAY_MOVIES_ENDPOINT, AIRING_TODAY_MOVIES_KEY } from "@/app/constants";
+import { AIRING_TODAY_TVSHOWS_ENDPOINT, AIRING_TODAY_TVSHOWS_KEY } from "@/app/constants";
 import APIClient from "@/app/services/tmdbApiClient";
 import { TVShowsResponse } from "@/app/types/tv/TVShowsResponse";
 import moviesFetchConfig from "@/app/utils/moviesFetchConfig";
@@ -28,11 +28,11 @@ const TVShowsAiringTodayPage = async ({
     sort_by
   );
 
-  const apiClient = new APIClient<TVShowsResponse>(AIRING_TODAY_MOVIES_ENDPOINT);
+  const apiClient = new APIClient<TVShowsResponse>(AIRING_TODAY_TVSHOWS_ENDPOINT);
 
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery({
-    queryKey: [AIRING_TODAY_MOVIES_KEY, moviesConfig.params],
+    queryKey: [AIRING_TODAY_TVSHOWS_KEY, moviesConfig.params],
     queryFn: () => apiClient.getAll(moviesConfig),
   });
 

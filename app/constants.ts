@@ -17,8 +17,12 @@ export const UPCOMING_MOVIES_ENDPOINT = "movie/upcoming";
 export const POPULAR_TVSHOWS_KEY = "popular-tvshows";
 export const POPULAR_TVSHOWS_ENDPOINT = "discover/tv";
 
-export const AIRING_TODAY_MOVIES_KEY = "airing_today-tvshows";
-export const AIRING_TODAY_MOVIES_ENDPOINT = "tv/airing_today";
+export const AIRING_TODAY_TVSHOWS_KEY = "airing_today-tvshows";
+export const AIRING_TODAY_TVSHOWS_ENDPOINT = "tv/airing_today";
 
-export const ON_THE_AIR_MOVIES_KEY = "on_the_air-tvshows";
-export const ON_THE_AIR_MOVIES_ENDPOINT = "tv/on_the_air";
+export const ON_THE_AIR_TVSHOW_KEY = "on_the_air-tvshows";
+export const ON_THE_AIR_TVSHOW_ENDPOINT = "tv/on_the_air";
+
+export const TOP_RATED_TVSHOWS_KEY = "top_rated-tvshows";
+export const TOP_RATED_TVSHOWS_ENDPOINT = "tv/top_rated";
+

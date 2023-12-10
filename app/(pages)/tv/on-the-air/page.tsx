@@ -1,4 +1,4 @@
-import { ON_THE_AIR_MOVIES_ENDPOINT, ON_THE_AIR_MOVIES_KEY } from "@/app/constants";
+import { ON_THE_AIR_TVSHOW_ENDPOINT, ON_THE_AIR_TVSHOW_KEY } from "@/app/constants";
 import APIClient from "@/app/services/tmdbApiClient";
 import { TVShowsResponse } from "@/app/types/tv/TVShowsResponse";
 import moviesFetchConfig from "@/app/utils/moviesFetchConfig";
@@ -25,12 +25,12 @@ const TVShowsOnTheAirPage = async ({
   );
 
   const apiClient = new APIClient<TVShowsResponse>(
-    ON_THE_AIR_MOVIES_ENDPOINT
+    ON_THE_AIR_TVSHOW_ENDPOINT
   );
 
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery({
-    queryKey: [ON_THE_AIR_MOVIES_KEY, moviesConfig.params],
+    queryKey: [ON_THE_AIR_TVSHOW_KEY, moviesConfig.params],
     queryFn: () => apiClient.getAll(moviesConfig),
   });
 
