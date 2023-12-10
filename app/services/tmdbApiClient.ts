@@ -18,17 +18,17 @@ class APIClient<T> {
     return axiosInstance.get<T>(this.endpoint, config).then((res) => res.data);
   };
 
-  getMovie = (idEndpoint: string) => {
-    return axiosInstance
-      .get<T>(this.endpoint + idEndpoint)
-      .then((res) => res.data);
-  };
+  // getMovie = (idEndpoint: string) => {
+  //   return axiosInstance
+  //     .get<T>(this.endpoint + idEndpoint)
+  //     .then((res) => res.data);
+  // };
 
-  searchMovie = (searhQuery: string) => {
-    return axiosInstance
-      .get<T>(this.endpoint + "?query=" + searhQuery)
-      .then((res) => res.data);
-  };
+  // searchMovie = (searhQuery: string) => {
+  //   return axiosInstance
+  //     .get<T>(this.endpoint + "?query=" + searhQuery)
+  //     .then((res) => res.data);
+  // };
 }
 
 export default APIClient;

@@ -1,24 +1,24 @@
-import { Movie } from "@/app/types/movies/MoviesResponse";
+import { TVShow } from "@/app/types/tv/TVShowsResponse";
 import ReleaseDateUI from "@/app/utils/releaseDateUI";
 
 interface Props {
-  movie: Movie;
+  tvShow: TVShow;
 }
 
-const Card = ({ movie }: Props) => {
+const TVShowsCard = ({ tvShow }: Props) => {
   const style = {
-    "--value": movie.vote_average * 10,
+    "--value": tvShow.vote_average * 10,
     "--thickness": "3px",
     "--size": "2rem",
   } as React.CSSProperties;
 
-  const { releaseDate } = ReleaseDateUI(movie.release_date);
+  const { releaseDate } = ReleaseDateUI(tvShow.first_air_date);
 
   return (
     <div className="card bg-base-100 shadow-xl">
       <figure>
         <img
-          src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`}
+          src={`https://image.tmdb.org/t/p/w342${tvShow.poster_path}`}
           alt="Shoes"
           className="w-full"
         />
@@ -27,9 +27,9 @@ const Card = ({ movie }: Props) => {
         <div
           className={[
             `${
-              movie.vote_average > 7.5
+              tvShow.vote_average > 7.5
                 ? "voteGood"
-                : movie.vote_average > 6.0
+                : tvShow.vote_average > 6.0
                 ? "voteOk"
                 : "voteBad"
             }`,
@@ -45,10 +45,10 @@ const Card = ({ movie }: Props) => {
           ].join(" ")}
           style={style}
           role="progressbar">
-          {movie.vote_average.toFixed(1)}
+          {tvShow.vote_average.toFixed(1)}
         </div>
-        <h2 className="card-title line-clamp-2 m-0" title={movie.title}>
-          {movie.title}
+        <h2 className="card-title line-clamp-2 m-0" title={tvShow.name}>
+          {tvShow.name}
         </h2>
         <p className="grow-0">{releaseDate}</p>
       </div>
@@ -56,4 +56,4 @@ const Card = ({ movie }: Props) => {
   );
 };
 
-export default Card;
+export default TVShowsCard;
