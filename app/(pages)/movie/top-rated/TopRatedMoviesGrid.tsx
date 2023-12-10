@@ -20,11 +20,8 @@ const TopRatedMoviesGrid = ({
 }: Props) => {
   const moviesConfig = moviesFetchConfig(page, with_original_language, sort_by);
 
-  // const apiClient = new APIClient<MoviesResponse>(DISCOVER_NOW_PLAYING_MOVIES_ENDPOINT);
-
   const { data, error, isLoading } = useQuery<MoviesResponse>({
     queryKey: [TOP_RATED_MOVIES_KEY, moviesConfig.params],
-    // queryFn: () => apiClient.getAll(moviesConfig),
     placeholderData: keepPreviousData,
   });
 

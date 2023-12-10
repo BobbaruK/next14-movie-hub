@@ -1,4 +1,5 @@
 import { Movie } from "@/app/types/movies/MoviesResponse";
+import ReleaseDateUI from "@/app/utils/releaseDateUI";
 
 interface Props {
   movie: Movie;
@@ -10,6 +11,8 @@ const Card = ({ movie }: Props) => {
     "--thickness": "3px",
     "--size": "2rem",
   } as React.CSSProperties;
+
+  const { releaseDate } = ReleaseDateUI(movie.release_date);
 
   return (
     <div className="card bg-base-100 shadow-xl">
@@ -44,8 +47,10 @@ const Card = ({ movie }: Props) => {
           role="progressbar">
           {movie.vote_average.toFixed(1)}
         </div>
-        <h2 className="card-title line-clamp-2 m-0">{movie.title}</h2>
-        <p className="grow-0">{movie.release_date}</p>
+        <h2 className="card-title line-clamp-2 m-0" title={movie.title}>
+          {movie.title}
+        </h2>
+        <p className="grow-0">{releaseDate}</p>
       </div>
     </div>
   );
