@@ -19,3 +19,6 @@ export const POPULAR_TVSHOWS_ENDPOINT = "discover/tv";
 
 export const AIRING_TODAY_MOVIES_KEY = "airing_today-tvshows";
 export const AIRING_TODAY_MOVIES_ENDPOINT = "tv/airing_today";
+
+export const ON_THE_AIR_MOVIES_KEY = "on_the_air-tvshows";
+export const ON_THE_AIR_MOVIES_ENDPOINT = "tv/on_the_air";
