@@ -1,4 +1,5 @@
-import { Movie } from "@/app/types/movie";
+import { Movie } from "@/app/types/movies/MoviesResponse";
+
 
 interface Props {
   movie: Movie;

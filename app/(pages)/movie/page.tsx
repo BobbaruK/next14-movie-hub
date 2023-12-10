@@ -1,10 +1,41 @@
-import { Card } from "@/app/components/Card";
-import useMovies from "@/app/hooks/useMovies";
+import { DISCOVER_MOVIES_ENDPOINT } from "@/app/constants";
+import APIClient from "@/app/services/tmdbApiClient";
+import { MoviesResponse } from "@/app/types/movies/MoviesResponse";
+import moviesFetchConfig from "@/app/utils/moviesFetchConfig";
+import {
+  dehydrate,
+  HydrationBoundary,
+  QueryClient,
+} from "@tanstack/react-query";
+import MoviesGrid from "./MoviesGrid";
 
+interface Props {
+  searchParams: {
+    page: string;
+    with_original_language: string;
+    sort_by: string;
+  };
+}
 
+const PopularMoviePage = async ({
+  searchParams: { page, with_original_language, sort_by },
+}: Props) => {
+  const queryClient = new QueryClient();
 
-const PopularMoviePage = async () => {
-  const movies = await useMovies();
+  const pageNumber = parseInt(page);
+
+  const moviesConfig = moviesFetchConfig(
+    pageNumber,
+    with_original_language,
+    sort_by
+  );
+
+  const apiClient = new APIClient<MoviesResponse>(DISCOVER_MOVIES_ENDPOINT);
+
+  await queryClient.prefetchQuery({
+    queryKey: ["movies", moviesConfig.params],
+    queryFn: () => apiClient.getAll(moviesConfig),
+  });
 
   return (
     <>
@@ -19,11 +50,13 @@ const PopularMoviePage = async () => {
           <h3>Language</h3>
         </div>
         <div className="lg:basis-3/4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3">
-            {movies?.results?.map((movie) => (
-              <Card key={movie.id} movie={movie} />
-            ))}
-          </div>
+          <HydrationBoundary state={dehydrate(queryClient)}>
+            <MoviesGrid
+              page={pageNumber}
+              sort_by={sort_by}
+              with_original_language={with_original_language}
+            />
+          </HydrationBoundary>
         </div>
       </div>
     </>
