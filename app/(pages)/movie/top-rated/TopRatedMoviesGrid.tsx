@@ -1,7 +1,7 @@
 "use client";
 
 import { MovieCard } from "@/app/components/Card/Movie";
-import { TOP_RATED_MOVIES_KEY } from "@/app/constants";
+import { RQ_TOP_RATED_MOVIES_KEY } from "@/app/constants";
 import { MoviesResponse } from "@/app/types/movies/MoviesResponse";
 import moviesFetchConfig from "@/app/utils/moviesFetchConfig";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
@@ -21,7 +21,7 @@ const TopRatedMoviesGrid = ({
   const moviesConfig = moviesFetchConfig(page, with_original_language, sort_by);
 
   const { data, error, isLoading } = useQuery<MoviesResponse>({
-    queryKey: [TOP_RATED_MOVIES_KEY, moviesConfig.params],
+    queryKey: [RQ_TOP_RATED_MOVIES_KEY, moviesConfig.params],
     placeholderData: keepPreviousData,
   });
 

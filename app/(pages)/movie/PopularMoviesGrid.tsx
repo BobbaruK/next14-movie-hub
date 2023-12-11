@@ -1,7 +1,7 @@
 "use client";
 
 import { MovieCard } from "@/app/components/Card/Movie";
-import { POPULAR_MOVIES_KEY } from "@/app/constants";
+import { RQ_POPULAR_MOVIES_KEY } from "@/app/constants";
 import { MoviesResponse } from "@/app/types/movies/MoviesResponse";
 import moviesFetchConfig from "@/app/utils/moviesFetchConfig";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
@@ -23,7 +23,7 @@ const PopularMoviesGrid = ({
   // const apiClient = new APIClient<MoviesResponse>(DISCOVER_MOVIES_ENDPOINT);
 
   const { data, error, isLoading } = useQuery<MoviesResponse>({
-    queryKey: [POPULAR_MOVIES_KEY, moviesConfig.params],
+    queryKey: [RQ_POPULAR_MOVIES_KEY, moviesConfig.params],
     // queryFn: () => apiClient.getAll(moviesConfig),
     placeholderData: keepPreviousData,
   });

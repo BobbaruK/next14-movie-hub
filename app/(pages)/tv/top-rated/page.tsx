@@ -1,6 +1,6 @@
 import {
-  TOP_RATED_TVSHOWS_ENDPOINT,
-  TOP_RATED_TVSHOWS_KEY
+  RQ_TOP_RATED_TVSHOWS_ENDPOINT,
+  RQ_TOP_RATED_TVSHOWS_KEY
 } from "@/app/constants";
 import APIClient from "@/app/services/tmdbApiClient";
 import { TVShowsResponse } from "@/app/types/tv/TVShowsResponse";
@@ -31,11 +31,11 @@ const TopRatedTVShowsPage = async ({
     sort_by
   );
 
-  const apiClient = new APIClient<TVShowsResponse>(TOP_RATED_TVSHOWS_ENDPOINT);
+  const apiClient = new APIClient<TVShowsResponse>(RQ_TOP_RATED_TVSHOWS_ENDPOINT);
 
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery({
-    queryKey: [TOP_RATED_TVSHOWS_KEY, moviesConfig.params],
+    queryKey: [RQ_TOP_RATED_TVSHOWS_KEY, moviesConfig.params],
     queryFn: () => apiClient.getAll(moviesConfig),
   });
 

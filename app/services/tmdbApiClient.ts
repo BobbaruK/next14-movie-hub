@@ -1,9 +1,11 @@
+import { TMDB_API_KEY } from "@/env";
 import axios, { AxiosRequestConfig } from "axios";
 
 export const axiosInstance = axios.create({
   baseURL: "https://api.themoviedb.org/3",
   params: {
-    api_key: process.env.TMDB_API_KEY,
+    // api_key: process.env.TMDB_API_KEY,
+    api_key: TMDB_API_KEY,
   },
 });
 

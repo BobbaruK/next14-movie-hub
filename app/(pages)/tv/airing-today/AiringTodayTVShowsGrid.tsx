@@ -1,7 +1,7 @@
 "use client";
 
 import { TVShowsCard } from "@/app/components/Card/TVShow";
-import { AIRING_TODAY_TVSHOWS_KEY } from "@/app/constants";
+import { RQ_AIRING_TODAY_TVSHOWS_KEY } from "@/app/constants";
 import { TVShowsResponse } from "@/app/types/tv/TVShowsResponse";
 import moviesFetchConfig from "@/app/utils/moviesFetchConfig";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
@@ -23,7 +23,7 @@ const AiringTodayTVShowsGrid = ({
   // const apiClient = new APIClient<MoviesResponse>(DISCOVER_MOVIES_ENDPOINT);
 
   const { data, error, isLoading } = useQuery<TVShowsResponse>({
-    queryKey: [AIRING_TODAY_TVSHOWS_KEY, tvShowConfig.params],
+    queryKey: [RQ_AIRING_TODAY_TVSHOWS_KEY, tvShowConfig.params],
     // queryFn: () => apiClient.getAll(moviesConfig),
     placeholderData: keepPreviousData,
   });

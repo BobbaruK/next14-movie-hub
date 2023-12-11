@@ -1,4 +1,4 @@
-import { POPULAR_MOVIES_ENDPOINT, POPULAR_MOVIES_KEY } from "@/app/constants";
+import { RQ_POPULAR_MOVIES_ENDPOINT, RQ_POPULAR_MOVIES_KEY } from "@/app/constants";
 import APIClient from "@/app/services/tmdbApiClient";
 import { MoviesResponse } from "@/app/types/movies/MoviesResponse";
 import moviesFetchConfig from "@/app/utils/moviesFetchConfig";
@@ -8,7 +8,6 @@ import {
   dehydrate,
 } from "@tanstack/react-query";
 import PopularMoviesGrid from "./PopularMoviesGrid";
-import { Suspense } from "react";
 
 interface Props {
   searchParams: {
@@ -29,11 +28,11 @@ const PopularMoviePage = async ({
     sort_by
   );
 
-  const apiClient = new APIClient<MoviesResponse>(POPULAR_MOVIES_ENDPOINT);
+  const apiClient = new APIClient<MoviesResponse>(RQ_POPULAR_MOVIES_ENDPOINT);
 
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery({
-    queryKey: [POPULAR_MOVIES_KEY, moviesConfig.params],
+    queryKey: [RQ_POPULAR_MOVIES_KEY, moviesConfig.params],
     queryFn: () => apiClient.getAll(moviesConfig),
   });
 
@@ -50,7 +49,6 @@ const PopularMoviePage = async ({
           <h3>Language</h3>
         </div>
         <div className="lg:basis-3/4">
-          <Suspense fallback={<p>MUIEEE</p>}>dsads</Suspense>
           <HydrationBoundary state={dehydrate(queryClient)}>
             <PopularMoviesGrid
               page={pageNumber}

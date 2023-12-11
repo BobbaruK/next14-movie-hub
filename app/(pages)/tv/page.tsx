@@ -1,4 +1,4 @@
-import { POPULAR_TVSHOWS_ENDPOINT, POPULAR_TVSHOWS_KEY } from "@/app/constants";
+import { RQ_POPULAR_TVSHOWS_ENDPOINT, RQ_POPULAR_TVSHOWS_KEY } from "@/app/constants";
 import APIClient from "@/app/services/tmdbApiClient";
 import { TVShowsResponse } from "@/app/types/tv/TVShowsResponse";
 import moviesFetchConfig from "@/app/utils/moviesFetchConfig";
@@ -28,11 +28,11 @@ const PopularTVShowsPage = async ({
     sort_by
   );
 
-  const apiClient = new APIClient<TVShowsResponse>(POPULAR_TVSHOWS_ENDPOINT);
+  const apiClient = new APIClient<TVShowsResponse>(RQ_POPULAR_TVSHOWS_ENDPOINT);
 
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery({
-    queryKey: [POPULAR_TVSHOWS_KEY, moviesConfig.params],
+    queryKey: [RQ_POPULAR_TVSHOWS_KEY, moviesConfig.params],
     queryFn: () => apiClient.getAll(moviesConfig),
   });
 

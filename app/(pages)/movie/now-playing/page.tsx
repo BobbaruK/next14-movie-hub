@@ -1,4 +1,4 @@
-import { NOW_PLAYING_MOVIES_ENDPOINT, NOW_PLAYING_MOVIES_KEY } from "@/app/constants";
+import { RQ_NOW_PLAYING_MOVIES_ENDPOINT, RQ_NOW_PLAYING_MOVIES_KEY } from "@/app/constants";
 import APIClient from "@/app/services/tmdbApiClient";
 import { MoviesResponse } from "@/app/types/movies/MoviesResponse";
 import moviesFetchConfig from "@/app/utils/moviesFetchConfig";
@@ -23,11 +23,11 @@ const NowPlayingMoviesPage = async ({
     sort_by
   );
 
-  const apiClient = new APIClient<MoviesResponse>(NOW_PLAYING_MOVIES_ENDPOINT);
+  const apiClient = new APIClient<MoviesResponse>(RQ_NOW_PLAYING_MOVIES_ENDPOINT);
 
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery({
-    queryKey: [NOW_PLAYING_MOVIES_KEY, moviesConfig.params],
+    queryKey: [RQ_NOW_PLAYING_MOVIES_KEY, moviesConfig.params],
     queryFn: () => apiClient.getAll(moviesConfig),
   });
 
