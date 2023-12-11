@@ -1,6 +1,6 @@
 "use client";
 
-import { MovieCard } from "@/app/components/Card/Movie";
+import MovieGrid from "@/app/components/MovieGrid/MovieGrid";
 import MoviePagination from "@/app/components/MoviePagination/MoviePagination";
 import { RQ_NOW_PLAYING_MOVIES_KEY } from "@/app/constants";
 import { MoviesResponse } from "@/app/types/movies/MoviesResponse";
@@ -41,11 +41,7 @@ const NowPlayingMoviesGrid = ({
           with_original_language={with_original_language}
         />
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3">
-        {data?.results?.map((movie) => (
-          <MovieCard key={movie.id} movie={movie} />
-        ))}
-      </div>
+      <MovieGrid movies={data} />
       <div className="mt-4">
         <MoviePagination
           movie={data}

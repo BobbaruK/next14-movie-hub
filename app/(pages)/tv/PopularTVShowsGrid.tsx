@@ -1,6 +1,5 @@
 "use client";
-
-import { TVShowsCard } from "@/app/components/Card/TVShow";
+import MovieGrid from "@/app/components/MovieGrid/MovieGrid";
 import MoviePagination from "@/app/components/MoviePagination/MoviePagination";
 import { RQ_POPULAR_TVSHOWS_KEY } from "@/app/constants";
 import { TVShowsResponse } from "@/app/types/tv/TVShowsResponse";
@@ -44,11 +43,7 @@ const PopularTVShowsGrid = ({
           with_original_language={with_original_language}
         />
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3">
-        {data?.results?.map((tvShow) => (
-          <TVShowsCard key={tvShow.id} tvShow={tvShow} />
-        ))}
-      </div>
+      <MovieGrid movies={data} />
       <div className="mt-4">
         <MoviePagination
           movie={data}

@@ -3,9 +3,10 @@ import { Movie } from "@/app/types/movies/MoviesResponse";
 import ReleaseDateUI from "@/app/utils/releaseDateUI";
 import { useQuery } from "@tanstack/react-query";
 import { TMDBImage } from "../../TMDBImage";
+import { TVShow } from "@/app/types/tv/TVShowsResponse";
 
 interface Props {
-  movie: Movie;
+  movie: Movie | TVShow;
 }
 
 const MovieCard = ({ movie }: Props) => {
@@ -15,12 +16,20 @@ const MovieCard = ({ movie }: Props) => {
     "--size": "2rem",
   } as React.CSSProperties;
 
-  const { releaseDate } = ReleaseDateUI(movie.release_date);
+  const instanceOfMovie = (object: any): object is Movie => {
+    return "title" in object;
+  };
+
+  const title = instanceOfMovie(movie) ? movie.title : movie.name;
+
+  const { releaseDate } = ReleaseDateUI(
+    instanceOfMovie(movie) ? movie.release_date : movie.first_air_date
+  );
 
   return (
     <div className="card bg-base-100 shadow-xl">
       <figure>
-        <TMDBImage alt={movie.title} path={movie.poster_path} />
+        <TMDBImage alt={title} path={movie.poster_path} />
       </figure>
       <div className="card-body p-4 flex justify-between relative pt-7">
         <div
@@ -46,8 +55,8 @@ const MovieCard = ({ movie }: Props) => {
           role="progressbar">
           {movie.vote_average.toFixed(1)}
         </div>
-        <h2 className="card-title line-clamp-2 m-0" title={movie.title}>
-          {movie.title}
+        <h2 className="card-title line-clamp-2 m-0" title={title}>
+          {title}
         </h2>
         <p className="grow-0">{releaseDate}</p>
       </div>
