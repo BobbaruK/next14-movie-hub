@@ -1,4 +1,8 @@
-import { RQ_AIRING_TODAY_TVSHOWS_ENDPOINT, RQ_AIRING_TODAY_TVSHOWS_KEY } from "@/app/constants";
+import MoviesGridSection from "@/app/(pages)/MoviesGridSection";
+import {
+  RQ_AIRING_TODAY_TVSHOWS_ENDPOINT,
+  RQ_AIRING_TODAY_TVSHOWS_KEY,
+} from "@/app/constants";
 import APIClient from "@/app/services/tmdbApiClient";
 import { TVShowsResponse } from "@/app/types/tv/TVShowsResponse";
 import moviesFetchConfig from "@/app/utils/moviesFetchConfig";
@@ -7,7 +11,6 @@ import {
   QueryClient,
   dehydrate,
 } from "@tanstack/react-query";
-import AiringTodayTVShowsGrid from "./AiringTodayTVShowsGrid";
 
 interface Props {
   searchParams: {
@@ -28,7 +31,9 @@ const TVShowsAiringTodayPage = async ({
     sort_by
   );
 
-  const apiClient = new APIClient<TVShowsResponse>(RQ_AIRING_TODAY_TVSHOWS_ENDPOINT);
+  const apiClient = new APIClient<TVShowsResponse>(
+    RQ_AIRING_TODAY_TVSHOWS_ENDPOINT
+  );
 
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery({
@@ -38,26 +43,14 @@ const TVShowsAiringTodayPage = async ({
 
   return (
     <>
-      <div className="appContaier">
-        <h1>TV Shows Airing Today</h1>
-      </div>
-      <div className="appContaier flex flex-col lg:flex-row gap-8">
-        <div className="lg:basis-1/4">
-          <h2>Sorting</h2>
-          <h2>Filtering</h2>
-          <h3>Genre(s)</h3>
-          <h3>Language</h3>
-        </div>
-        <div className="lg:basis-3/4">
-          <HydrationBoundary state={dehydrate(queryClient)}>
-            <AiringTodayTVShowsGrid
-              page={pageNumber}
-              sort_by={sort_by}
-              with_original_language={with_original_language}
-            />
-          </HydrationBoundary>
-        </div>
-      </div>
+      <HydrationBoundary state={dehydrate(queryClient)}>
+        <MoviesGridSection
+          page={pageNumber}
+          sort_by={sort_by}
+          with_original_language={with_original_language}
+          queryKey={RQ_AIRING_TODAY_TVSHOWS_KEY}
+        />
+      </HydrationBoundary>
     </>
   );
 };

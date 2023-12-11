@@ -1,6 +1,6 @@
 import {
   RQ_UPCOMING_MOVIES_ENDPOINT,
-  RQ_UPCOMING_MOVIES_KEY
+  RQ_UPCOMING_MOVIES_KEY,
 } from "@/app/constants";
 import APIClient from "@/app/services/tmdbApiClient";
 import { MoviesResponse } from "@/app/types/movies/MoviesResponse";
@@ -10,7 +10,7 @@ import {
   QueryClient,
   dehydrate,
 } from "@tanstack/react-query";
-import UpcomingMoviesGrid from "./UpcomingMoviesGrid";
+import MoviesGridSection from "../../../MoviesGridSection";
 
 interface Props {
   searchParams: {
@@ -41,26 +41,14 @@ const UpcomingMoviesPage = async ({
 
   return (
     <>
-      <div className="appContaier">
-        <h1>Upcoming Movies</h1>
-      </div>
-      <div className="appContaier flex flex-col lg:flex-row gap-8">
-        <div className="lg:basis-1/4">
-          <h2>Sorting</h2>
-          <h2>Filtering</h2>
-          <h3>Genre(s)</h3>
-          <h3>Language</h3>
-        </div>
-        <div className="lg:basis-3/4">
-          <HydrationBoundary state={dehydrate(queryClient)}>
-            <UpcomingMoviesGrid
-              page={pageNumber}
-              sort_by={sort_by}
-              with_original_language={with_original_language}
-            />
-          </HydrationBoundary>
-        </div>
-      </div>
+      <HydrationBoundary state={dehydrate(queryClient)}>
+        <MoviesGridSection
+          page={pageNumber}
+          sort_by={sort_by}
+          with_original_language={with_original_language}
+          queryKey={RQ_UPCOMING_MOVIES_KEY}
+        />
+      </HydrationBoundary>
     </>
   );
 };
