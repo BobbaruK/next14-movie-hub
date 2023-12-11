@@ -1,5 +1,6 @@
 import { TVShow } from "@/app/types/tv/TVShowsResponse";
 import ReleaseDateUI from "@/app/utils/releaseDateUI";
+import { TMDBImage } from "../../TMDBImage";
 
 interface Props {
   tvShow: TVShow;
@@ -17,11 +18,7 @@ const TVShowsCard = ({ tvShow }: Props) => {
   return (
     <div className="card bg-base-100 shadow-xl">
       <figure>
-        <img
-          src={`https://image.tmdb.org/t/p/w342${tvShow.poster_path}`}
-          alt="Shoes"
-          className="w-full"
-        />
+        <TMDBImage alt={tvShow.name} path={tvShow.poster_path} />
       </figure>
       <div className="card-body p-4 flex justify-between relative pt-7">
         <div

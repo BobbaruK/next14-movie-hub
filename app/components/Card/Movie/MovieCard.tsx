@@ -1,5 +1,8 @@
+import { TMDB_API_Configuration } from "@/app/types/config";
 import { Movie } from "@/app/types/movies/MoviesResponse";
 import ReleaseDateUI from "@/app/utils/releaseDateUI";
+import { useQuery } from "@tanstack/react-query";
+import { TMDBImage } from "../../TMDBImage";
 
 interface Props {
   movie: Movie;
@@ -17,11 +20,7 @@ const MovieCard = ({ movie }: Props) => {
   return (
     <div className="card bg-base-100 shadow-xl">
       <figure>
-        <img
-          src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`}
-          alt="Shoes"
-          className="w-full"
-        />
+        <TMDBImage alt={movie.title} path={movie.poster_path} />
       </figure>
       <div className="card-body p-4 flex justify-between relative pt-7">
         <div
