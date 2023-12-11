@@ -4,6 +4,7 @@ import { RQ_CONFIG_KEY } from "@/app/constants";
 import { TMDB_API_Configuration } from "@/app/types/config";
 import PosterPath from "@/app/utils/images/posterPath";
 import { useQuery } from "@tanstack/react-query";
+import Image from "next/image";
 
 interface Props {
   alt: string;
@@ -19,7 +20,15 @@ const TMDBImage = ({ alt, path }: Props) => {
 
   return (
     <>
-      <img src={posterPath} alt={alt} />
+      <Image
+        src={posterPath}
+        placeholder="blur"
+        blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII="
+        alt={alt}
+        width={500}
+        height={750}
+        sizes="(min-width: 1280px) 219px, (min-width: 1040px) calc(25vw - 24px), (min-width: 780px) calc(33.33vw - 19px), (min-width: 640px) calc(50vw - 22px), (min-width: 580px) 500px, 89.23vw"
+      />
     </>
   );
 };
