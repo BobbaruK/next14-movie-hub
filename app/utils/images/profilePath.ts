@@ -1,5 +1,5 @@
-import { CONFIG_ERROR_IMAGE } from "@/app/constants";
 import { TMDB_API_Configuration } from "@/app/types/config";
+import noImage from "../../../public/no-entry-sign.svg";
 
 export const enum ProfileSizes {
   "w45" = 0,
@@ -13,8 +13,7 @@ const ProfilePath = (
   posterPath: string | null | undefined,
   size: ProfileSizes = ProfileSizes.original
 ) => {
-  if (posterPath === null)
-    return "https://placehold.co/500x750?text=Profile+Missing";
+  if (posterPath === null) return noImage;
 
   if (config)
     return (
@@ -23,7 +22,7 @@ const ProfilePath = (
       posterPath
     );
 
-  return CONFIG_ERROR_IMAGE;
+  return noImage;
 };
 
 export default ProfilePath;

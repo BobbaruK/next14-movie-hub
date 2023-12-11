@@ -1,5 +1,5 @@
-import { CONFIG_ERROR_IMAGE } from "@/app/constants";
 import { TMDB_API_Configuration } from "@/app/types/config";
+import noImage from "../../../public/no-entry-sign.svg";
 
 export const enum PosterSizes {
   "w92" = 0,
@@ -16,8 +16,7 @@ const PosterPath = (
   posterPath: string | null | undefined,
   size: PosterSizes = PosterSizes.w500
 ) => {
-  if (posterPath === null)
-    return "https://placehold.co/500x750?text=Poster+Missing";
+  if (posterPath === null) return noImage;
 
   if (config)
     return (
@@ -26,7 +25,7 @@ const PosterPath = (
       posterPath
     );
 
-  return CONFIG_ERROR_IMAGE;
+  return noImage;
 };
 
 export default PosterPath;
