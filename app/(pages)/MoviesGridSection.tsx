@@ -1,10 +1,10 @@
 "use client";
 import MovieGrid from "@/app/components/MovieGrid/MovieGrid";
 import MoviePagination from "@/app/components/MoviePagination/MoviePagination";
-import { RQ_POPULAR_TVSHOWS_KEY } from "@/app/constants";
-import { TVShowsResponse } from "@/app/types/tv/TVShowsResponse";
 import moviesFetchConfig from "@/app/utils/moviesFetchConfig";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
+import { MoviesResponse } from "../types/movies/MoviesResponse";
+import { TVShowsResponse } from "../types/movies/TVShowsResponse";
 
 interface Props {
   page: number;
@@ -23,14 +23,15 @@ const MoviesGridSection = ({
 
   // const apiClient = new APIClient<MoviesResponse>(DISCOVER_MOVIES_ENDPOINT);
 
-  const { data, error, isLoading } = useQuery<TVShowsResponse>({
-    queryKey: [queryKey, tvShowConfig.params],
-    // queryFn: () => apiClient.getAll(moviesConfig),
-    placeholderData: keepPreviousData,
-  });
+  const { data, error, isLoading } = useQuery<MoviesResponse | TVShowsResponse>(
+    {
+      queryKey: [queryKey, tvShowConfig.params],
+      // queryFn: () => apiClient.getAll(moviesConfig),
+      placeholderData: keepPreviousData,
+    }
+  );
 
-  if (error)
-    throw new Error("Something went wrong while fetching 'Popular TV Shows'");
+  if (error) throw new Error("Something went wrong while fetching Data");
 
   if (isLoading)
     return <div className="alert alert-info">Loading movies...</div>;

@@ -6,7 +6,7 @@ interface Props {
 
 const MovieNavigation = ({ id }: Props) => {
   return (
-    <div className="navbar bg-base-100 flex justify-center align-middle ">
+    <div className="navbar bg-base-100 flex justify-center align-middle relative z-10">
       <div className="">
         <ul className="menu menu-horizontal px-1 ">
           <li>

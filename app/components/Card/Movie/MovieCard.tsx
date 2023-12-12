@@ -1,7 +1,9 @@
 import { Movie } from "@/app/types/movies/MoviesResponse";
-import { TVShow } from "@/app/types/tv/TVShowsResponse";
 import ReleaseDateUI from "@/app/utils/releaseDateUI";
+import Link from "next/link";
 import { TMDBImage } from "../../TMDBImage";
+import { TVShow } from "@/app/types/movies/TVShowsResponse";
+import instanceOf from "@/app/utils/instanceOf";
 
 interface Props {
   movie: Movie | TVShow;
@@ -14,15 +16,15 @@ const MovieCard = ({ movie }: Props) => {
     "--size": "2rem",
   } as React.CSSProperties;
 
-  const instanceOfMovie = (object: any): object is Movie => {
-    return "title" in object;
-  };
+  const instanceOfMovie = instanceOf<Movie>(movie);
 
-  const title = instanceOfMovie(movie) ? movie.title : movie.name;
+  const title = instanceOfMovie ? movie.title : movie.name;
 
   const { releaseDate } = ReleaseDateUI(
-    instanceOfMovie(movie) ? movie.release_date : movie.first_air_date
+    instanceOfMovie ? movie.release_date : movie.first_air_date
   );
+
+  const link = instanceOfMovie ? `/movie/${movie.id}` : `/tv/${movie.id}`;
 
   return (
     <div className="card bg-base-100 shadow-xl">
@@ -54,7 +56,7 @@ const MovieCard = ({ movie }: Props) => {
           {movie.vote_average.toFixed(1)}
         </div>
         <h2 className="card-title line-clamp-2 m-0" title={title}>
-          {title}
+          <Link href={link}>{title}</Link>
         </h2>
         <p className="grow-0">{releaseDate}</p>
       </div>

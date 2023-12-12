@@ -33,7 +33,7 @@ export default async function RootLayout({
   });
 
   return (
-    <html lang="en" data-theme="halloween">
+    <html lang="en" data-theme="luxury">
       <body className={inter.className}>
         <ReactQueryProvider>
           <HydrationBoundary state={dehydrate(queryClient)}>

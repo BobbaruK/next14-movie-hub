@@ -1,5 +1,5 @@
 import { MoviesResponse } from "@/app/types/movies/MoviesResponse";
-import { TVShowsResponse } from "@/app/types/tv/TVShowsResponse";
+import { TVShowsResponse } from "@/app/types/movies/TVShowsResponse";
 import moviesFetchConfig from "@/app/utils/moviesFetchConfig";
 import { useRouter } from "next/navigation";
 

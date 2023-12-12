@@ -3,7 +3,8 @@ import {
   RQ_POPULAR_TVSHOWS_KEY,
 } from "@/app/constants";
 import APIClient from "@/app/services/tmdbApiClient";
-import { TVShowsResponse } from "@/app/types/tv/TVShowsResponse";
+import { QueryParams } from "@/app/types/QueryParams";
+import { TVShowsResponse } from "@/app/types/movies/TVShowsResponse";
 import moviesFetchConfig from "@/app/utils/moviesFetchConfig";
 import {
   HydrationBoundary,
@@ -11,7 +12,6 @@ import {
   dehydrate,
 } from "@tanstack/react-query";
 import MoviesGridSection from "../../MoviesGridSection";
-import { QueryParams } from "@/app/types/QueryParams";
 
 interface Props {
   searchParams: QueryParams;

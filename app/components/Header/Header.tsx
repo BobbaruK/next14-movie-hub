@@ -3,7 +3,7 @@ import Link from "next/link";
 const Header = () => {
   return (
     <>
-      <header>
+      <header className="relative z-20">
         <div className="appContaier">
           <div className="navbar bg-base-100 px-0">
             <div className="navbar-start">

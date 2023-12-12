@@ -1,19 +1,23 @@
+import MainMovieHero from "@/app/(pages)/MainMovieHero";
 import { MainSidebar } from "@/app/components/Sidebar/main";
+import { RQ_MOVIE_KEY } from "@/app/constants";
 import { ReactNode } from "react";
 import MovieNavigation from "../MovieNavigation";
 
 interface Props {
   children: ReactNode;
   params: {
-    id: number;
+    id: string;
   };
 }
 
 const MainMovieRightSidebarLayout = ({ children, params: { id } }: Props) => {
+  const movieId = parseInt(id);
+
   return (
     <>
-      <MovieNavigation id={id} />
-      si hero movie aici
+      <MovieNavigation id={movieId} />
+      <MainMovieHero id={movieId} queryKey={RQ_MOVIE_KEY} />
       <div className="appContaier flex flex-col lg:flex-row gap-8">
         <div className="lg:basis-3/4">{children}</div>
         <div className="lg:basis-1/4">
