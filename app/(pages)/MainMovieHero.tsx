@@ -48,6 +48,7 @@ const MainMovieHero = ({ id, queryKey }: Props) => {
         alt={title}
         width={3840}
         height={2160}
+        priority={true}
         placeholder="blur"
         blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII="
         sizes="100vw"
@@ -61,6 +62,7 @@ const MainMovieHero = ({ id, queryKey }: Props) => {
             alt={title}
             width={296}
             height={444}
+            priority={true}
             placeholder="blur"
             blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII="
             sizes="(min-width: 1340px) 296px, (min-width: 1040px) calc(18.57vw + 51px), (min-width: 400px) 296px, calc(35vw + 163px)"
