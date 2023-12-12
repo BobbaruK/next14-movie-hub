@@ -1,8 +1,6 @@
 "use client";
 import { useQuery } from "@tanstack/react-query";
-import { RQ_MOVIE_ENDPOINT, RQ_MOVIE_KEY } from "../constants";
 import { MovieResponse } from "../types/movies/MovieResponse";
-import APIClient from "../services/tmdbApiClient";
 import { TVShowResponse } from "../types/movies/TVShowResponse";
 
 interface Props {

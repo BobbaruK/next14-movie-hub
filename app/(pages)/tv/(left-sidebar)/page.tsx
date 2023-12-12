@@ -12,6 +12,12 @@ import {
   dehydrate,
 } from "@tanstack/react-query";
 import MoviesGridSection from "../../MoviesGridSection";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Popular TV Shows",
+  description: "This is the popular tv shows page",
+};
 
 interface Props {
   searchParams: QueryParams;

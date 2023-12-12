@@ -12,6 +12,12 @@ import {
 } from "@tanstack/react-query";
 import MoviesGridSection from "../../../MoviesGridSection";
 import { QueryParams } from "@/app/types/QueryParams";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Now Playing Movies",
+  description: "This is the now playing movie page",
+};
 
 interface Props {
   searchParams: QueryParams;
