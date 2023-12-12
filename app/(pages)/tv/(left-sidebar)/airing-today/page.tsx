@@ -4,6 +4,7 @@ import {
   RQ_AIRING_TODAY_TVSHOWS_KEY,
 } from "@/app/constants";
 import APIClient from "@/app/services/tmdbApiClient";
+import { QueryParams } from "@/app/types/QueryParams";
 import { TVShowsResponse } from "@/app/types/tv/TVShowsResponse";
 import moviesFetchConfig from "@/app/utils/moviesFetchConfig";
 import {
@@ -13,11 +14,7 @@ import {
 } from "@tanstack/react-query";
 
 interface Props {
-  searchParams: {
-    page: string;
-    with_original_language: string;
-    sort_by: string;
-  };
+  searchParams: QueryParams;
 }
 
 const TVShowsAiringTodayPage = async ({

@@ -1,9 +1,7 @@
-import { TMDB_API_Configuration } from "@/app/types/config";
 import { Movie } from "@/app/types/movies/MoviesResponse";
-import ReleaseDateUI from "@/app/utils/releaseDateUI";
-import { useQuery } from "@tanstack/react-query";
-import { TMDBImage } from "../../TMDBImage";
 import { TVShow } from "@/app/types/tv/TVShowsResponse";
+import ReleaseDateUI from "@/app/utils/releaseDateUI";
+import { TMDBImage } from "../../TMDBImage";
 
 interface Props {
   movie: Movie | TVShow;

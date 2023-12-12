@@ -1,4 +1,4 @@
-import { TMDB_API_Configuration } from "@/app/types/config";
+import { TMDB_API_Configuration } from "@/app/types/TMDB_API_Configuration";
 import noImage from "../../../public/no-entry-sign.svg";
 
 export const enum BackdropSizes {

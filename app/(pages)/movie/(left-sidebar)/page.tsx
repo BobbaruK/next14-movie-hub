@@ -11,13 +11,10 @@ import {
   dehydrate,
 } from "@tanstack/react-query";
 import MoviesGridSection from "../../MoviesGridSection";
+import { QueryParams } from "@/app/types/QueryParams";
 
 interface Props {
-  searchParams: {
-    page: string;
-    with_original_language: string;
-    sort_by: string;
-  };
+  searchParams: QueryParams;
 }
 
 const PopularMoviePage = async ({

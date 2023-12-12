@@ -1,16 +1,16 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
-import { Header } from "./components/Header";
-import ReactQueryProvider from "./ReactQueryProvider";
-import APIClient from "./services/tmdbApiClient";
 import {
   HydrationBoundary,
   QueryClient,
   dehydrate,
 } from "@tanstack/react-query";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import ReactQueryProvider from "./ReactQueryProvider";
+import { Header } from "./components/Header";
 import { RQ_CONFIG_KEY } from "./constants";
-import { TMDB_API_Configuration } from "./types/config";
+import "./globals.css";
+import APIClient from "./services/tmdbApiClient";
+import { TMDB_API_Configuration } from "./types/TMDB_API_Configuration";
 
 const inter = Inter({ subsets: ["latin"] });
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { RQ_CONFIG_KEY } from "@/app/constants";
-import { TMDB_API_Configuration } from "@/app/types/config";
+import { TMDB_API_Configuration } from "@/app/types/TMDB_API_Configuration";
 import PosterPath from "@/app/utils/images/posterPath";
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
