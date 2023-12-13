@@ -1,12 +1,12 @@
 import {
-  RQ_IMAGES_ENDPOINT,
-  RQ_IMAGES_KEY,
+  RQ_MOVIE_IMAGES_ENDPOINT,
+  RQ_MOVIE_IMAGES_KEY,
   RQ_MOVIE_ENDPOINT,
   RQ_MOVIE_KEY,
 } from "@/app/constants";
 import APIClient from "@/app/services/tmdbApiClient";
+import { ImagesResponse } from "@/app/types/movies/ImagesResponse";
 import { MovieResponse } from "@/app/types/movies/MovieResponse";
-import { ImagesResponse } from "@/app/types/movies/images/ImagesResponse";
 import {
   HydrationBoundary,
   QueryClient,
@@ -32,9 +32,11 @@ const MainMovieLayout = async ({ children, params: { id } }: Props) => {
     queryFn: () => apiClientMovie.getAll(),
   });
 
-  const apiClientImages = new APIClient<ImagesResponse>(RQ_IMAGES_ENDPOINT(id));
+  const apiClientImages = new APIClient<ImagesResponse>(
+    RQ_MOVIE_IMAGES_ENDPOINT(id)
+  );
   await queryClient.prefetchQuery({
-    queryKey: [RQ_IMAGES_KEY, actualId],
+    queryKey: [RQ_MOVIE_IMAGES_KEY, actualId],
     queryFn: () => apiClientImages.getAll(),
   });
 

@@ -12,10 +12,13 @@ import Image from "next/image";
 interface Props {
   alt: string;
   path: string | null;
+  width: number;
+  height: number;
+  sizes: string;
   type: ImageType;
 }
 
-const TMDBImage = ({ alt, path, type }: Props) => {
+const TMDBImage = ({ alt, path, width, height, sizes, type }: Props) => {
   const { data } = useQuery<TMDB_API_Configuration>({
     queryKey: [RQ_CONFIG_KEY],
   });
@@ -42,14 +45,15 @@ const TMDBImage = ({ alt, path, type }: Props) => {
   return (
     <>
       <Image
-        className="w-full"
+        className="w-full h-auto"
         src={posterPath}
         placeholder="blur"
         blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII="
         alt={alt}
-        width={500}
-        height={750}
-        sizes="(min-width: 1280px) 219px, (min-width: 1040px) calc(25vw - 24px), (min-width: 780px) calc(33.33vw - 19px), (min-width: 640px) calc(50vw - 22px), (min-width: 580px) 500px, 89.23vw"
+        width={width}
+        height={height}
+        sizes={sizes}
+        // sizes="(min-width: 1280px) 219px, (min-width: 1040px) calc(25vw - 24px), (min-width: 780px) calc(33.33vw - 19px), (min-width: 640px) calc(50vw - 22px), (min-width: 580px) 500px, 89.23vw"
       />
     </>
   );

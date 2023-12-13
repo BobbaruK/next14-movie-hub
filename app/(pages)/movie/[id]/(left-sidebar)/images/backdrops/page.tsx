@@ -1,5 +1,6 @@
 import ImageShowcase from "@/app/(pages)/ImageShowcase";
 import ImagesSidebar from "@/app/(pages)/ImagesSidebar";
+import { RQ_MOVIE_IMAGES_KEY } from "@/app/constants";
 
 interface Props {
   params: {
@@ -28,6 +29,7 @@ const MovieBackdropsPage = ({
               id={actualId}
               type="backdrops"
               languageParam={image_language}
+              queryKey={RQ_MOVIE_IMAGES_KEY}
             />
           </div>
         </div>
@@ -36,6 +38,8 @@ const MovieBackdropsPage = ({
             id={actualId}
             type="backdrops"
             languageParam={image_language}
+            queryKey={RQ_MOVIE_IMAGES_KEY}
+            imageSizes="(min-width: 1280px) 330px, (min-width: 1040px) calc(25vw - 24px), (min-width: 780px) calc(33.33vw - 19px), (min-width: 640px) calc(50vw - 22px), calc(100vw - 32px)"
           />
         </div>
       </div>

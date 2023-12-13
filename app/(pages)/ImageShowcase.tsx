@@ -2,7 +2,11 @@
 
 import { useQuery } from "@tanstack/react-query";
 import { ImageCard } from "../components/Card/Image";
-import { RQ_CONFIG_KEY, RQ_IMAGES_KEY, RQ_LANGUAGES_KEY } from "../constants";
+import {
+  RQ_CONFIG_KEY,
+  RQ_MOVIE_IMAGES_KEY,
+  RQ_LANGUAGES_KEY,
+} from "../constants";
 import { TMDB_API_Configuration } from "../types/TMDB_API_Configuration";
 import {
   Image,
@@ -16,9 +20,17 @@ interface Props {
   id: number;
   type: ImageType;
   languageParam: string | undefined;
+  queryKey: string;
+  imageSizes: string;
 }
 
-const ImageShowcase = ({ id, type, languageParam }: Props) => {
+const ImageShowcase = ({
+  id,
+  type,
+  languageParam,
+  queryKey,
+  imageSizes,
+}: Props) => {
   const { data: config } = useQuery<TMDB_API_Configuration>({
     queryKey: [RQ_CONFIG_KEY],
   });
@@ -32,7 +44,7 @@ const ImageShowcase = ({ id, type, languageParam }: Props) => {
     error: imagesError,
     isLoading: imagesIsLoading,
   } = useQuery<ImagesResponse>({
-    queryKey: [RQ_IMAGES_KEY, id],
+    queryKey: [queryKey, id],
   });
 
   if (imagesError)
@@ -94,6 +106,7 @@ const ImageShowcase = ({ id, type, languageParam }: Props) => {
                 image.file_path,
                 BackdropSizes.original
               )}
+              imageSizes={imageSizes}
             />
           ))}
         </>

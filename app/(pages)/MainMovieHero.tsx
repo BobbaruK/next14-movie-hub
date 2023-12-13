@@ -74,12 +74,12 @@ const MainMovieHero = ({ id, queryKey }: Props) => {
               className="rounded-lg w-full"
               src={posterPath}
               alt={title}
-              width={296}
-              height={444}
+              width={384}
+              height={576}
               priority={true}
               placeholder="blur"
               blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII="
-              sizes="(min-width: 1340px) 296px, (min-width: 1040px) calc(18.57vw + 51px), (min-width: 400px) 296px, calc(35vw + 163px)"
+              sizes="(min-width: 1380px) 304px, (min-width: 1040px) calc(18.75vw + 49px), calc(100vw - 32px)"
             />
           </div>
           <div className="lg:basis-3/4 flex flex-col gap-8 justify-center">

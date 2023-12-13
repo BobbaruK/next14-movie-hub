@@ -6,14 +6,22 @@ import Link from "next/link";
 interface Props {
   image: Image;
   href: string;
+  imageSizes: string;
 }
 
-const ImageCard = ({ image, href }: Props) => {
+const ImageCard = ({ image, href, imageSizes }: Props) => {
   return (
     <div>
       <div className="card bg-base-100 shadow-xl h-full overflow-hidden">
         <Link href={href} target="_blank">
-          <TMDBImage alt="dsa" path={image.file_path} type="backdrops" />
+          <TMDBImage
+            alt={image.file_path}
+            path={image.file_path}
+            type="backdrops"
+            height={image.height}
+            width={image.width}
+            sizes={imageSizes}
+          />
         </Link>
         <div className="flex flex-col gap-4 items-start p-3 ">
           <p>Aspect Ratio: {image.aspect_ratio}</p>

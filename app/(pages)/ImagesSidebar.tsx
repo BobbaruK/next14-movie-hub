@@ -1,6 +1,6 @@
 "use client";
 
-import { RQ_IMAGES_KEY, RQ_LANGUAGES_KEY } from "@/app/constants";
+import { RQ_MOVIE_IMAGES_KEY, RQ_LANGUAGES_KEY } from "@/app/constants";
 import { ImageType, ImagesResponse } from "@/app/types/movies/ImagesResponse";
 import { Language } from "@/app/types/movies/Language";
 import { useQuery } from "@tanstack/react-query";
@@ -10,15 +10,16 @@ interface Props {
   id: number;
   type: ImageType;
   languageParam: string | undefined;
+  queryKey: string;
 }
 
-const ImagesSidebar = ({ id, type, languageParam }: Props) => {
+const ImagesSidebar = ({ id, type, languageParam, queryKey }: Props) => {
   const { data: languages } = useQuery<Language[]>({
     queryKey: [RQ_LANGUAGES_KEY],
   });
 
   const { data: images } = useQuery<ImagesResponse>({
-    queryKey: [RQ_IMAGES_KEY, id],
+    queryKey: [queryKey, id],
   });
 
   const renderedImages = images![type];
