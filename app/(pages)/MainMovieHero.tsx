@@ -18,13 +18,10 @@ interface Props {
 }
 
 const MainMovieHero = ({ id, queryKey }: Props) => {
-  const {
-    data: config,
-    error: configError,
-    isLoading: configIsLoading,
-  } = useQuery<TMDB_API_Configuration>({
-    queryKey: [RQ_CONFIG_KEY],
-  });
+  const { data: config, isLoading: configIsLoading } =
+    useQuery<TMDB_API_Configuration>({
+      queryKey: [RQ_CONFIG_KEY],
+    });
 
   const {
     data: movie,
@@ -70,7 +67,7 @@ const MainMovieHero = ({ id, queryKey }: Props) => {
           blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII="
           sizes="100vw"
         />
-        <div className="absolute -z-10 w-full h-full inset-0 bg-primary opacity-90 bg-gradient-to-r from-primary to-secondary"></div>
+        <div className="absolute -z-10 w-full h-full inset-0 bg-primary opacity-95 bg-gradient-to-r from-primary to-secondary"></div>
         <div className="appContaier flex flex-col lg:flex-row gap-8 text-primary-content">
           <div className="lg:basis-1/4">
             <Image

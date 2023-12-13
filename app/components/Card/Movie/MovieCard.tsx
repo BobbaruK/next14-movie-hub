@@ -29,7 +29,7 @@ const MovieCard = ({ movie }: Props) => {
   return (
     <div className="card bg-base-100 shadow-xl">
       <figure>
-        <TMDBImage alt={title} path={movie.poster_path} />
+        <TMDBImage alt={title} path={movie.poster_path} type="posters" />
       </figure>
       <div className="card-body p-4 flex justify-between relative pt-7">
         <div

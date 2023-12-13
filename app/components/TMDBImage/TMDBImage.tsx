@@ -2,25 +2,47 @@
 
 import { RQ_CONFIG_KEY } from "@/app/constants";
 import { TMDB_API_Configuration } from "@/app/types/TMDB_API_Configuration";
-import PosterPath from "@/app/utils/images/posterPath";
+import { ImageType } from "@/app/types/movies/ImagesResponse";
+import BackdropPath, { BackdropSizes } from "@/app/utils/images/backdropPath";
+import LogoPath, { LogoSizes } from "@/app/utils/images/logoPath";
+import PosterPath, { PosterSizes } from "@/app/utils/images/posterPath";
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 
 interface Props {
   alt: string;
   path: string | null;
+  type: ImageType;
 }
 
-const TMDBImage = ({ alt, path }: Props) => {
+const TMDBImage = ({ alt, path, type }: Props) => {
   const { data } = useQuery<TMDB_API_Configuration>({
     queryKey: [RQ_CONFIG_KEY],
   });
 
-  const posterPath = PosterPath(data, path);
+  let posterPath;
+
+  switch (type) {
+    case "posters":
+      posterPath = PosterPath(data, path, PosterSizes.w500);
+      break;
+
+    case "backdrops":
+      posterPath = BackdropPath(data, path, BackdropSizes.w780);
+      break;
+
+    case "logos":
+      posterPath = LogoPath(data, path, LogoSizes.w500);
+      break;
+
+    default:
+      break;
+  }
 
   return (
     <>
       <Image
+        className="w-full"
         src={posterPath}
         placeholder="blur"
         blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII="

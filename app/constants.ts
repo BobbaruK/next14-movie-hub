@@ -32,8 +32,16 @@ export const RQ_TOP_RATED_TVSHOWS_ENDPOINT = "/tv/top_rated";
 
 // Movie
 export const RQ_MOVIE_KEY = "movie";
-export const RQ_MOVIE_ENDPOINT = "/movie/";
+export const RQ_MOVIE_ENDPOINT = (id: string) => `/movie/${id}`;
 
 // TV Show
 export const RQ_TVSHOW_KEY = "tvshow";
 export const RQ_TVSHOW_ENDPOINT = "/tv/";
+
+// Images
+export const RQ_IMAGES_KEY = "images";
+export const RQ_IMAGES_ENDPOINT = (id: string) => `movie/${id}/images`;
+
+// Languages
+export const RQ_LANGUAGES_KEY = "languages";
+export const RQ_LANGUAGES_ENDPOINT = "/configuration/languages";

@@ -2,6 +2,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { MovieResponse } from "../types/movies/MovieResponse";
 import { TVShowResponse } from "../types/movies/TVShowResponse";
+import instanceOf from "../utils/instanceOf";
 
 interface Props {
   id: number;
@@ -17,6 +18,8 @@ const MainMovieSection = ({ id, queryKey }: Props) => {
 
   if (isLoading)
     return <div className="alert alert-info">Loading movie...</div>;
+
+  const instanceOfMovie = instanceOf<MovieResponse>(data);
 
   return <>bla bladsadsas</>;
 };

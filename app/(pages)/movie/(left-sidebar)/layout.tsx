@@ -7,7 +7,6 @@ interface Props {
 const LeftSidebarMovieLayout = ({ children }: Props) => {
   return (
     <>
-      {/* <MovieNavigation id={id} /> */}
       <div className="appContaier flex flex-col lg:flex-row gap-8">
         <div className="lg:basis-1/4">
           <MainSidebar />
