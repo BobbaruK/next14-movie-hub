@@ -9,11 +9,11 @@ interface Props {
 }
 
 const ImageLanguage = ({ language }: Props) => {
-  if (!language) return;
-
   const { data } = useQuery<Language[]>({
     queryKey: [RQ_LANGUAGES_KEY],
   });
+
+  if (!language) return;
 
   const lang = data?.find((lang) => lang.iso_639_1 === language);
 
