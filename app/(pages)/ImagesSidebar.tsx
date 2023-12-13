@@ -46,9 +46,22 @@ const ImagesSidebar = ({ id, type, languageParam, queryKey }: Props) => {
             ].join(" ")}>
             <Link
               href="?image_language=no_language"
-              className="flex items-center justify-between w-full">
+              className={[
+                "flex",
+                "items-center",
+                "justify-between",
+                "w-full",
+                languageParam === "no_language" ? "text-slate-900" : "",
+              ].join(" ")}>
               No Language
-              <div className="badge badge-secondary text-secondary-content gap-2 p-3">
+              <div
+                className={[
+                  "badge",
+                  "badge-secondary",
+                  "text-secondary-content",
+                  "gap-2",
+                  "p-3",
+                ].join(" ")}>
                 {
                   renderedImages.filter((imgs) => imgs.iso_639_1 === null)
                     .length
@@ -66,12 +79,25 @@ const ImagesSidebar = ({ id, type, languageParam, queryKey }: Props) => {
             ].join(" ")}>
             <Link
               href={`?image_language=${lang}`}
-              className="flex items-center justify-between w-full">
+              className={[
+                "flex",
+                "items-center",
+                "justify-between",
+                "w-full",
+                languageParam === lang ? "text-slate-900" : "",
+              ].join(" ")}>
               {
                 languages?.find((language) => language.iso_639_1 === lang)
                   ?.english_name
               }{" "}
-              <div className="badge badge-secondary text-secondary-content gap-2 p-3">
+              <div
+                className={[
+                  "badge",
+                  "badge-secondary",
+                  "text-secondary-content",
+                  "gap-2",
+                  "p-3",
+                ].join(" ")}>
                 {
                   renderedImages.filter((imgs) => imgs.iso_639_1 === lang)
                     .length
