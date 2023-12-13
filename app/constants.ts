@@ -2,6 +2,7 @@ export const STALE_TIME = 24 * 60 * 60 * 1000; // 24 hours
 
 // Config
 export const RQ_CONFIG_KEY = "config";
+export const RQ_CONFIG_ENDPOINT = "/configuration";
 
 // Movies
 export const RQ_POPULAR_MOVIES_KEY = "popular-movies";
