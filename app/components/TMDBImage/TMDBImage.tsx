@@ -50,7 +50,7 @@ const TMDBImage = ({ alt, path, width, height, sizes, type }: Props) => {
         placeholder="blur"
         blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII="
         // alt={alt}
-        alt={'if image is not loaded, failed with a status of 402 - payment'}
+        alt={"if image is not loaded, failed with a status of 402 - payment"}
         width={width}
         height={height}
         sizes={sizes}

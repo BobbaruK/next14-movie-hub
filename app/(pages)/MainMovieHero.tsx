@@ -11,6 +11,7 @@ import BackdropPath, { BackdropSizes } from "../utils/images/backdropPath";
 import PosterPath from "../utils/images/posterPath";
 import instanceOf from "../utils/instanceOf";
 import ReleaseDateUI from "../utils/releaseDateUI";
+import { TMDBImage } from "../components/TMDBImage";
 
 interface Props {
   id: number;
@@ -56,31 +57,29 @@ const MainMovieHero = ({ id, queryKey }: Props) => {
   return (
     <>
       <div className="py-20 relative">
-        <Image
-          className="absolute -z-20 w-full h-full inset-0 object-cover"
-          src={backdropPath}
-          alt={title}
-          width={3840}
-          height={2160}
-          priority={true}
-          placeholder="blur"
-          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII="
-          sizes="100vw"
-        />
+        <div className="absolute -z-20 w-full h-full inset-0 [&>img]:h-full [&>img]:w-full [&>img]:object-cover">
+          <TMDBImage
+            alt={title}
+            width={3840}
+            height={2160}
+            path={backdropPath}
+            sizes="100vw"
+            type="backdrops"
+          />
+        </div>
         <div className="absolute -z-10 w-full h-full inset-0 bg-primary opacity-95 bg-gradient-to-r from-primary to-secondary"></div>
         <div className="appContaier flex flex-col lg:flex-row gap-8 text-primary-content">
           <div className="lg:basis-1/4">
-            <Image
-              className="rounded-lg w-full"
-              src={posterPath}
-              alt={title}
-              width={384}
-              height={576}
-              priority={true}
-              placeholder="blur"
-              blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII="
-              sizes="(min-width: 1380px) 304px, (min-width: 1040px) calc(18.75vw + 49px), calc(100vw - 32px)"
-            />
+            <div className="rounded-lg w-full overflow-hidden">
+              <TMDBImage
+                alt={title}
+                width={384}
+                height={576}
+                path={posterPath}
+                sizes="(min-width: 1380px) 304px, (min-width: 1040px) calc(18.75vw + 49px), calc(100vw - 32px)"
+                type="posters"
+              />
+            </div>
           </div>
           <div className="lg:basis-3/4 flex flex-col gap-8 justify-center">
             <h1 className="m-0">
