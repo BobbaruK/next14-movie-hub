@@ -1,6 +1,6 @@
 import releaseDateUI from "../utils/releaseDateUI";
 
-const useMovieMetadataTitle = (
+const movieMetadataTitle = (
   title: string,
   releaseDate: string,
   page?: string
@@ -12,4 +12,4 @@ const useMovieMetadataTitle = (
   return `${title} (${year})`;
 };
 
-export default useMovieMetadataTitle;
+export default movieMetadataTitle;

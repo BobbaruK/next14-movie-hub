@@ -1,8 +1,5 @@
-import useMovieMetadataTitle from "@/app/hooks/useMovieMetadataTitle";
-import { MovieResponse } from "@/app/types/movies/MovieResponse";
 import { People } from "@/app/types/movies/PeoplesResponse";
 import { Metadata } from "next";
-import React from "react";
 
 interface Props {
   params: {

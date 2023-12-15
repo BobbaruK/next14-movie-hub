@@ -1,5 +1,5 @@
-import useMovieMetadataTitle from "@/app/hooks/useMovieMetadataTitle";
 import { MovieResponse } from "@/app/types/movies/MovieResponse";
+import movieMetadataTitle from "@/app/utils/movieMetadataTitle";
 import { Metadata } from "next";
 
 interface Props {
@@ -17,11 +17,7 @@ export async function generateMetadata({
   ).then((res) => res.json());
 
   return {
-    title: useMovieMetadataTitle(
-      movie.title,
-      movie.release_date,
-      "Release Dates"
-    ),
+    title: movieMetadataTitle(movie.title, movie.release_date, "Release Dates"),
     description: movie.tagline,
   };
 }

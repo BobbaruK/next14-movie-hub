@@ -1,9 +1,8 @@
 import MainMovieSection from "@/app/(pages)/MainMovieSection";
 import { RQ_TVSHOW_KEY } from "@/app/constants";
-import useMovieMetadataTitle from "@/app/hooks/useMovieMetadataTitle";
 import { TVShowResponse } from "@/app/types/movies/TVShowResponse";
+import movieMetadataTitle from "@/app/utils/movieMetadataTitle";
 import { Metadata } from "next";
-import React from "react";
 
 interface Props {
   params: {
@@ -20,7 +19,7 @@ export async function generateMetadata({
   ).then((res) => res.json());
 
   return {
-    title: useMovieMetadataTitle(movie.name, movie.first_air_date),
+    title: movieMetadataTitle(movie.name, movie.first_air_date),
     description: movie.tagline,
   };
 }

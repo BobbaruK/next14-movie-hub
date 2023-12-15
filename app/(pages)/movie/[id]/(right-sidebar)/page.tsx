@@ -1,7 +1,7 @@
 import MainMovieSection from "@/app/(pages)/MainMovieSection";
 import { RQ_MOVIE_KEY } from "@/app/constants";
-import useMovieMetadataTitle from "@/app/hooks/useMovieMetadataTitle";
 import { MovieResponse } from "@/app/types/movies/MovieResponse";
+import movieMetadataTitle from "@/app/utils/movieMetadataTitle";
 import { Metadata } from "next";
 
 interface Props {
@@ -23,7 +23,7 @@ export async function generateMetadata({
   // const previousImages = (await parent).openGraph?.images || [];
 
   return {
-    title: useMovieMetadataTitle(movie.title, movie.release_date),
+    title: movieMetadataTitle(movie.title, movie.release_date),
     description: movie.tagline,
     // openGraph: {
     //   images: ["/some-specific-page-image.jpg", ...previousImages],

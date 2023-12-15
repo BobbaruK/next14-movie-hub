@@ -1,8 +1,8 @@
 import ImageShowcase from "@/app/(pages)/ImageShowcase";
 import ImagesSidebar from "@/app/(pages)/ImagesSidebar";
 import { RQ_TVSHOWS_IMAGES_KEY } from "@/app/constants";
-import useMovieMetadataTitle from "@/app/hooks/useMovieMetadataTitle";
 import { TVShowResponse } from "@/app/types/movies/TVShowResponse";
+import movieMetadataTitle from "@/app/utils/movieMetadataTitle";
 import { Metadata } from "next";
 
 interface Props {
@@ -23,7 +23,7 @@ export async function generateMetadata({
   ).then((res) => res.json());
 
   return {
-    title: useMovieMetadataTitle(movie.name, movie.first_air_date, "Logos"),
+    title: movieMetadataTitle(movie.name, movie.first_air_date, "Logos"),
     description: movie.tagline,
   };
 }
