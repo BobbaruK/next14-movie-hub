@@ -1,4 +1,4 @@
-interface GenreResponse {
+export interface GenreResponse {
   genres: Genre[];
 }
 
