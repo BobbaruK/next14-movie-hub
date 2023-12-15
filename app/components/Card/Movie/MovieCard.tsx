@@ -29,14 +29,16 @@ const MovieCard = ({ movie }: Props) => {
   return (
     <div className="card bg-base-100 shadow-xl">
       <figure>
-        <TMDBImage
-          alt={title}
-          path={movie.poster_path}
-          type="posters"
-          width={348}
-          height={521}
-          sizes="(min-width: 1280px) 219px, (min-width: 1040px) calc(25vw - 24px), (min-width: 780px) calc(33.33vw - 19px), (min-width: 640px) calc(50vw - 22px), calc(100vw - 32px)"
-        />
+        <Link href={link}>
+          <TMDBImage
+            alt={title}
+            path={movie.poster_path}
+            type="posters"
+            width={348}
+            height={521}
+            sizes="(min-width: 1280px) 219px, (min-width: 1040px) calc(25vw - 24px), (min-width: 780px) calc(33.33vw - 19px), (min-width: 640px) calc(50vw - 22px), calc(100vw - 32px)"
+          />
+        </Link>
       </figure>
       <div className="card-body p-4 flex justify-between relative pt-7">
         <div

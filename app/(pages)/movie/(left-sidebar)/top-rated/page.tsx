@@ -16,7 +16,6 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Top Rater Movies",
-  description: "This is the top rater movie page",
 };
 
 interface Props {

@@ -16,7 +16,6 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Upcoming Movies",
-  description: "This is the upcoming movie page",
 };
 
 interface Props {

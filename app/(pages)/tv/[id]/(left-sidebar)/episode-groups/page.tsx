@@ -23,14 +23,14 @@ export async function generateMetadata({
     title: useMovieMetadataTitle(
       movie.name,
       movie.first_air_date,
-      "Alternative Titles"
+      "Episode Groups"
     ),
     description: movie.tagline,
   };
 }
 
-const TVShowTitlesPage = () => {
-  return <h1>TVShowTitlesPage</h1>;
+const TVShowEpisodeGroupsPage = () => {
+  return <h1>TVShowEpisodeGroupsPage</h1>;
 };
 
-export default TVShowTitlesPage;
+export default TVShowEpisodeGroupsPage;

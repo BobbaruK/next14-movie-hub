@@ -1,6 +1,10 @@
 import ImageShowcase from "@/app/(pages)/ImageShowcase";
 import ImagesSidebar from "@/app/(pages)/ImagesSidebar";
 import { RQ_MOVIE_IMAGES_KEY } from "@/app/constants";
+import useMovieMetadataTitle from "@/app/hooks/useMovieMetadataTitle";
+import { MovieResponse } from "@/app/types/movies/MovieResponse";
+import releaseDateUI from "@/app/utils/releaseDateUI";
+import { Metadata } from "next";
 
 interface Props {
   params: {
@@ -8,6 +12,20 @@ interface Props {
   };
   searchParams: {
     image_language: string | undefined;
+  };
+}
+
+export async function generateMetadata({
+  // parent: ResolvingMetadata
+  params: { id },
+}: Props): Promise<Metadata> {
+  const movie: MovieResponse = await fetch(
+    `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.TMDB_API_KEY}`
+  ).then((res) => res.json());
+
+  return {
+    title: useMovieMetadataTitle(movie.title, movie.release_date, "Backdrops"),
+    description: movie.tagline,
   };
 }
 

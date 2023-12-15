@@ -16,7 +16,6 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "On The Air TV Shows",
-  description: "This is the on the air tv shows page",
 };
 
 interface Props {

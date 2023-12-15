@@ -1,6 +1,9 @@
 import ImageShowcase from "@/app/(pages)/ImageShowcase";
 import ImagesSidebar from "@/app/(pages)/ImagesSidebar";
 import { RQ_TVSHOWS_IMAGES_KEY } from "@/app/constants";
+import useMovieMetadataTitle from "@/app/hooks/useMovieMetadataTitle";
+import { TVShowResponse } from "@/app/types/movies/TVShowResponse";
+import { Metadata } from "next";
 
 interface Props {
   params: {
@@ -8,6 +11,20 @@ interface Props {
   };
   searchParams: {
     image_language: string | undefined;
+  };
+}
+
+export async function generateMetadata({
+  // parent: ResolvingMetadata
+  params: { id },
+}: Props): Promise<Metadata> {
+  const movie: TVShowResponse = await fetch(
+    `https://api.themoviedb.org/3/tv/${id}?api_key=${process.env.TMDB_API_KEY}`
+  ).then((res) => res.json());
+
+  return {
+    title: useMovieMetadataTitle(movie.name, movie.first_air_date, "Backdrops"),
+    description: movie.tagline,
   };
 }
 

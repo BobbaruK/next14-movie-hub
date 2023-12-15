@@ -20,14 +20,14 @@ export async function generateMetadata({
     title: useMovieMetadataTitle(
       movie.title,
       movie.release_date,
-      "Translations"
+      "Cast & Crew"
     ),
     description: movie.tagline,
   };
 }
 
-const MovieTranslationsPage = () => {
-  return <h1>MovieTranslationsPage</h1>;
+const MovieCastPage = () => {
+  return <h1>MovieCastPage</h1>;
 };
 
-export default MovieTranslationsPage;
+export default MovieCastPage;
