@@ -1,3 +1,4 @@
+import { MainMovieLeftSidebarTemplate } from "@/app/components/server/MainMovieLeftSidebarTemplate";
 import { TVShowResponse } from "@/app/types/movies/tv/TVShowResponse";
 import movieMetadataTitle from "@/app/utils/movieMetadataTitle";
 import { Metadata } from "next";
@@ -28,24 +29,11 @@ export async function generateMetadata({
 const TVShowTranslationsPage = () => {
   return (
     <>
-      <div className="appContaier flex flex-col lg:flex-row gap-8">
-        <div className="lg:basis-1/4 xl:basis-2/12 ">
-          <div className="imagesSidebar">
-            <h1 className="py-4 px-2 m-0 bg-accent text-accent-content">
-              Translations
-            </h1>
-            {/* <MainMovieImagesFiltering
-          id={actualId}
-          type="backdrops"
-          languageParam={image_language}
-          queryKey={RQ_MOVIE_IMAGES_KEY}
-        /> */}
-          </div>
-        </div>
-        <div className="lg:basis-3/4 xl:basis-10/12">
-          <h1>dsadsa</h1>
-        </div>
-      </div>
+      <MainMovieLeftSidebarTemplate
+        title="Translations"
+        sidebar={<p>Sidebar</p>}
+        content={<p>Main content</p>}
+      />
     </>
   );
 };

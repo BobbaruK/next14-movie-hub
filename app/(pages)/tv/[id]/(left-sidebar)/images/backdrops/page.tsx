@@ -1,5 +1,6 @@
 import { ImageShowcase } from "@/app/components/client/ImageShowcase";
 import { MainMovieImagesFiltering } from "@/app/components/client/MainMovieImagesFiltering";
+import { MainMovieLeftSidebarTemplate } from "@/app/components/server/MainMovieLeftSidebarTemplate";
 import { RQ_TVSHOWS_IMAGES_KEY } from "@/app/constants";
 import { TVShowResponse } from "@/app/types/movies/tv/TVShowResponse";
 import movieMetadataTitle from "@/app/utils/movieMetadataTitle";
@@ -36,21 +37,17 @@ const TVShowBackdropsPage = ({
 
   return (
     <>
-      <div className="appContaier flex flex-col lg:flex-row gap-8">
-        <div className="lg:basis-1/4 xl:basis-2/12 ">
-          <div className="imagesSidebar">
-            <h1 className="py-4 px-2 m-0 bg-accent text-accent-content">
-              Backdrops
-            </h1>
-            <MainMovieImagesFiltering
-              id={actualId}
-              type="backdrops"
-              languageParam={image_language}
-              queryKey={RQ_TVSHOWS_IMAGES_KEY}
-            />
-          </div>
-        </div>
-        <div className="lg:basis-3/4 xl:basis-10/12">
+      <MainMovieLeftSidebarTemplate
+        title="Backdrops"
+        sidebar={
+          <MainMovieImagesFiltering
+            id={actualId}
+            type="backdrops"
+            languageParam={image_language}
+            queryKey={RQ_TVSHOWS_IMAGES_KEY}
+          />
+        }
+        content={
           <ImageShowcase
             id={actualId}
             type="backdrops"
@@ -60,8 +57,8 @@ const TVShowBackdropsPage = ({
             grid="sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3"
             imageClassName="sm:h-52 object-cover"
           />
-        </div>
-      </div>
+        }
+      />
     </>
   );
 };

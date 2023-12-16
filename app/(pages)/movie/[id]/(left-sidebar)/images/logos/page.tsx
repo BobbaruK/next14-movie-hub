@@ -1,5 +1,6 @@
 import { ImageShowcase } from "@/app/components/client/ImageShowcase";
 import { MainMovieImagesFiltering } from "@/app/components/client/MainMovieImagesFiltering";
+import { MainMovieLeftSidebarTemplate } from "@/app/components/server/MainMovieLeftSidebarTemplate";
 import { RQ_MOVIE_IMAGES_KEY } from "@/app/constants";
 import { MovieResponse } from "@/app/types/movies/movie/MovieResponse";
 import movieMetadataTitle from "@/app/utils/movieMetadataTitle";
@@ -36,21 +37,17 @@ const MovieLogosPage = ({
 
   return (
     <>
-      <div className="appContaier flex flex-col lg:flex-row gap-8">
-        <div className="lg:basis-1/4 xl:basis-2/12 ">
-          <div className="imagesSidebar">
-            <h1 className="py-4 px-2 m-0 bg-accent text-accent-content ">
-              Logos
-            </h1>
-            <MainMovieImagesFiltering
-              id={actualId}
-              type="logos"
-              languageParam={image_language}
-              queryKey={RQ_MOVIE_IMAGES_KEY}
-            />
-          </div>
-        </div>
-        <div className="lg:basis-3/4 xl:basis-10/12">
+      <MainMovieLeftSidebarTemplate
+        title="Logos"
+        sidebar={
+          <MainMovieImagesFiltering
+            id={actualId}
+            type="logos"
+            languageParam={image_language}
+            queryKey={RQ_MOVIE_IMAGES_KEY}
+          />
+        }
+        content={
           <ImageShowcase
             id={actualId}
             type="logos"
@@ -60,8 +57,8 @@ const MovieLogosPage = ({
             grid="sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"
             imageClassName="h-auto w-full p-2"
           />
-        </div>
-      </div>
+        }
+      />
     </>
   );
 };
