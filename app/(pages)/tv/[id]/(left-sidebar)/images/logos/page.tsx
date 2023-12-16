@@ -1,5 +1,5 @@
 import { ImageShowcase } from "@/app/components/client/ImageShowcase";
-import { ImagesFiltering } from "@/app/components/client/ImagesFiltering";
+import { MainMovieImagesFiltering } from "@/app/components/client/MainMovieImagesFiltering";
 import { RQ_TVSHOWS_IMAGES_KEY } from "@/app/constants";
 import { TVShowResponse } from "@/app/types/movies/tv/TVShowResponse";
 import movieMetadataTitle from "@/app/utils/movieMetadataTitle";
@@ -42,7 +42,7 @@ const TVShowLogosPage = ({
             <h1 className="py-4 px-2 m-0 bg-accent text-accent-content">
               Logos
             </h1>
-            <ImagesFiltering
+            <MainMovieImagesFiltering
               id={actualId}
               type="logos"
               languageParam={image_language}

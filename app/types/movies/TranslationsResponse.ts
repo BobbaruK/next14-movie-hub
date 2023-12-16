@@ -3,7 +3,7 @@ import { TVShowTranslationData } from "./tv/TVShowTranslationData";
 
 export interface TranslationsResponse {
   id: number;
-  translations: [];
+  translations: Translation[];
 }
 
 export interface Translation {

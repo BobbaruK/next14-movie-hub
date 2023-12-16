@@ -49,3 +49,8 @@ export const RQ_TVSHOWS_IMAGES_ENDPOINT = (id: string) => `tv/${id}/images`;
 // Languages
 export const RQ_LANGUAGES_KEY = "languages";
 export const RQ_LANGUAGES_ENDPOINT = "configuration/languages";
+
+// Translations
+export const RQ_TRANSLATIONS_KEY = "translations";
+export const RQ_TRANSLATIONS_ENDPOINT = (type: "movie" | "tv", id: string) =>
+  `${type}/${id}/translations`;

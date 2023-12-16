@@ -13,7 +13,7 @@ interface Props {
   queryKey: string;
 }
 
-const ImagesFiltering = ({ id, type, languageParam, queryKey }: Props) => {
+const MainMovieImagesFiltering = ({ id, type, languageParam, queryKey }: Props) => {
   const { data: languages } = useQuery<Language[]>({
     queryKey: [RQ_LANGUAGES_KEY],
   });
@@ -111,4 +111,4 @@ const ImagesFiltering = ({ id, type, languageParam, queryKey }: Props) => {
   );
 };
 
-export default ImagesFiltering;
+export default MainMovieImagesFiltering;

@@ -1,5 +1,5 @@
 import { ImageShowcase } from "@/app/components/client/ImageShowcase";
-import { ImagesFiltering } from "@/app/components/client/ImagesFiltering";
+import { MainMovieImagesFiltering } from "@/app/components/client/MainMovieImagesFiltering";
 import { RQ_MOVIE_IMAGES_KEY } from "@/app/constants";
 import { MovieResponse } from "@/app/types/movies/movie/MovieResponse";
 import movieMetadataTitle from "@/app/utils/movieMetadataTitle";
@@ -42,7 +42,7 @@ const MovieBackdropsPage = ({
             <h1 className="py-4 px-2 m-0 bg-accent text-accent-content">
               Backdrops
             </h1>
-            <ImagesFiltering
+            <MainMovieImagesFiltering
               id={actualId}
               type="backdrops"
               languageParam={image_language}
