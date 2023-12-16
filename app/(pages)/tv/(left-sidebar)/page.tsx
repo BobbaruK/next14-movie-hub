@@ -1,3 +1,4 @@
+import { MoviesGridSection } from "@/app/components/client/MoviesGridSection";
 import {
   RQ_POPULAR_TVSHOWS_ENDPOINT,
   RQ_POPULAR_TVSHOWS_KEY,
@@ -11,7 +12,6 @@ import {
   QueryClient,
   dehydrate,
 } from "@tanstack/react-query";
-import MoviesGridSection from "../../MoviesGridSection";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

@@ -1,11 +1,11 @@
 "use client";
 import MovieGrid from "@/app/components/MovieGrid/MovieGrid";
 import MoviePagination from "@/app/components/MoviePagination/MoviePagination";
+import ImagesShowcaseProvider from "@/app/providers/ImageContext/ImagesShowcaseProvider";
+import { MoviesResponse } from "@/app/types/movies/MoviesResponse";
+import { TVShowsResponse } from "@/app/types/movies/TVShowsResponse";
 import moviesFetchConfig from "@/app/utils/moviesFetchConfig";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
-import { MoviesResponse } from "../types/movies/MoviesResponse";
-import { TVShowsResponse } from "../types/movies/TVShowsResponse";
-import ImagesShowcaseProvider from "../providers/ImageContext/ImagesShowcaseProvider";
 
 interface Props {
   page: number;
@@ -47,8 +47,7 @@ const MoviesGridSection = ({
           with_original_language={with_original_language}
         />
       </div>
-
-      <ImagesShowcaseProvider className={'sm:h-72 object-cover'}>
+      <ImagesShowcaseProvider className={"sm:h-72 object-cover"}>
         <MovieGrid movies={data} />
       </ImagesShowcaseProvider>
       <div className="mt-4">

@@ -1,4 +1,4 @@
-import MoviesGridSection from "@/app/(pages)/MoviesGridSection";
+import { MoviesGridSection } from "@/app/components/client/MoviesGridSection";
 import {
   RQ_ON_THE_AIR_TVSHOW_ENDPOINT,
   RQ_ON_THE_AIR_TVSHOW_KEY,

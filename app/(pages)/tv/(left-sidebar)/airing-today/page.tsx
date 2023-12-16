@@ -1,4 +1,4 @@
-import MoviesGridSection from "@/app/(pages)/MoviesGridSection";
+import { MoviesGridSection } from "@/app/components/client/MoviesGridSection";
 import {
   RQ_AIRING_TODAY_TVSHOWS_ENDPOINT,
   RQ_AIRING_TODAY_TVSHOWS_KEY,

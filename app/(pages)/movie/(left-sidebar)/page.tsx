@@ -1,8 +1,10 @@
+import { MoviesGridSection } from "@/app/components/client/MoviesGridSection";
 import {
   RQ_POPULAR_MOVIES_ENDPOINT,
   RQ_POPULAR_MOVIES_KEY,
 } from "@/app/constants";
 import APIClient from "@/app/services/tmdbApiClient";
+import { QueryParams } from "@/app/types/QueryParams";
 import { MoviesResponse } from "@/app/types/movies/MoviesResponse";
 import moviesFetchConfig from "@/app/utils/moviesFetchConfig";
 import {
@@ -10,8 +12,6 @@ import {
   QueryClient,
   dehydrate,
 } from "@tanstack/react-query";
-import MoviesGridSection from "../../MoviesGridSection";
-import { QueryParams } from "@/app/types/QueryParams";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -44,7 +44,8 @@ const PopularMoviePage = async ({
 
   return (
     <>
-      <HydrationBoundary state={dehydrate(queryClient)}>asd
+      <HydrationBoundary state={dehydrate(queryClient)}>
+        asd
         <MoviesGridSection
           page={pageNumber}
           sort_by={sort_by}
