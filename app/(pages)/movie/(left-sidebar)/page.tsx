@@ -45,7 +45,6 @@ const PopularMoviePage = async ({
   return (
     <>
       <HydrationBoundary state={dehydrate(queryClient)}>
-        asd
         <MoviesGridSection
           page={pageNumber}
           sort_by={sort_by}

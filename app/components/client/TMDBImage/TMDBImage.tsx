@@ -1,7 +1,7 @@
 "use client";
 
 import { RQ_CONFIG_KEY } from "@/app/constants";
-import { ImagesContext } from "@/app/providers/ImageContext/ImageContext";
+import useImageContext from "@/app/providers/ImageContext/useImageContext";
 import { TMDB_API_Configuration } from "@/app/types/TMDB_API_Configuration";
 import { ImageType } from "@/app/types/movies/ImagesResponse";
 import BackdropPath, { BackdropSizes } from "@/app/utils/images/backdropPath";
@@ -9,7 +9,6 @@ import LogoPath, { LogoSizes } from "@/app/utils/images/logoPath";
 import PosterPath, { PosterSizes } from "@/app/utils/images/posterPath";
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
-import { useContext } from "react";
 
 interface Props {
   alt: string;
@@ -44,12 +43,12 @@ const TMDBImage = ({ alt, path, width, height, sizes, type }: Props) => {
       break;
   }
 
-  const imageDetails = useContext(ImagesContext);
+  const imageDetails = useImageContext();
 
   return (
     <>
       <Image
-        className={`max-w-full ${imageDetails.className || ''}`}
+        className={`max-w-full ${imageDetails.className || ""}`}
         src={posterPath}
         placeholder="blur"
         blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII="

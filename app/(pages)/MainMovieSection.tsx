@@ -4,6 +4,7 @@ import { MovieResponse } from "../types/movies/MovieResponse";
 import { TVShowResponse } from "../types/movies/TVShowResponse";
 import instanceOf from "../utils/instanceOf";
 
+// TODO: do this section maybe it will not be client component
 interface Props {
   id: number;
   queryKey: string;
