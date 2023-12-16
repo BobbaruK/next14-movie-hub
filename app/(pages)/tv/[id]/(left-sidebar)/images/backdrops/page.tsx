@@ -57,6 +57,8 @@ const TVShowBackdropsPage = ({
             languageParam={image_language}
             queryKey={RQ_TVSHOWS_IMAGES_KEY}
             imageSizes="(min-width: 1280px) 330px, (min-width: 1040px) calc(25vw - 24px), (min-width: 780px) calc(33.33vw - 19px), (min-width: 640px) calc(50vw - 22px), calc(100vw - 32px)"
+            grid="sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3"
+            imageClassName="sm:h-52 object-cover"
           />
         </div>
       </div>

@@ -2,19 +2,12 @@
 
 import { useQuery } from "@tanstack/react-query";
 import { ImageCard } from "../components/Card/Image";
-import {
-  RQ_CONFIG_KEY,
-  RQ_MOVIE_IMAGES_KEY,
-  RQ_LANGUAGES_KEY,
-} from "../constants";
+import { RQ_CONFIG_KEY, RQ_LANGUAGES_KEY } from "../constants";
+import ImagesShowcaseProvider from "../providers/ImageContext/ImagesShowcaseProvider";
 import { TMDB_API_Configuration } from "../types/TMDB_API_Configuration";
-import {
-  Image,
-  ImageType,
-  ImagesResponse,
-} from "../types/movies/ImagesResponse";
-import BackdropPath, { BackdropSizes } from "../utils/images/backdropPath";
+import { ImageType, ImagesResponse } from "../types/movies/ImagesResponse";
 import { Language } from "../types/movies/Language";
+import BackdropPath, { BackdropSizes } from "../utils/images/backdropPath";
 
 interface Props {
   id: number;
@@ -22,6 +15,8 @@ interface Props {
   languageParam: string | undefined;
   queryKey: string;
   imageSizes: string;
+  grid: string;
+  imageClassName: string;
 }
 
 const ImageShowcase = ({
@@ -30,6 +25,8 @@ const ImageShowcase = ({
   languageParam,
   queryKey,
   imageSizes,
+  grid,
+  imageClassName,
 }: Props) => {
   const { data: config } = useQuery<TMDB_API_Configuration>({
     queryKey: [RQ_CONFIG_KEY],
@@ -95,8 +92,8 @@ const ImageShowcase = ({
 
   return (
     <>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-        <>
+      <ImagesShowcaseProvider className={imageClassName}>
+        <div className={`grid gap-4 ${grid}`}>
           {renderedImagesLanguage(languageParam)?.map((image) => (
             <ImageCard
               key={image.file_path}
@@ -109,8 +106,8 @@ const ImageShowcase = ({
               imageSizes={imageSizes}
             />
           ))}
-        </>
-      </div>
+        </div>
+      </ImagesShowcaseProvider>
     </>
   );
 };

@@ -27,7 +27,7 @@ const MovieCard = ({ movie }: Props) => {
   const link = instanceOfMovie ? `/movie/${movie.id}` : `/tv/${movie.id}`;
 
   return (
-    <div className="card bg-base-100 shadow-xl">
+    <div className="card bg-base-100 shadow-md shadow-primary">
       <figure>
         <Link href={link} className="w-full">
           <TMDBImage

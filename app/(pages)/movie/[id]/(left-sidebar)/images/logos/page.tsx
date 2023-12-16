@@ -39,7 +39,7 @@ const MovieLogosPage = ({
       <div className="appContaier flex flex-col lg:flex-row gap-8">
         <div className="lg:basis-1/4 xl:basis-2/12 ">
           <div className="flex flex-col gap-4 shadow-md rounded-md  overflow-hidden">
-            <h1 className="py-4 px-2 m-0 bg-accent text-accent-content">
+            <h1 className="py-4 px-2 m-0 bg-accent text-accent-content ">
               Logos
             </h1>
             <ImagesSidebar
@@ -56,7 +56,9 @@ const MovieLogosPage = ({
             type="logos"
             languageParam={image_language}
             queryKey={RQ_MOVIE_IMAGES_KEY}
-            imageSizes="(min-width: 1280px) 330px, (min-width: 1040px) calc(25vw - 24px), (min-width: 780px) calc(33.33vw - 19px), (min-width: 640px) calc(50vw - 22px), calc(100vw - 32px)"
+            imageSizes="(min-width: 1280px) 174px, (min-width: 1040px) calc(18.64vw - 39px), (min-width: 780px) calc(33.33vw - 37px), (min-width: 640px) calc(50vw - 40px), calc(100vw - 48px)"
+            grid="sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"
+            imageClassName="h-auto w-full p-2"
           />
         </div>
       </div>

@@ -48,7 +48,7 @@ export default async function RootLayout({
   });
 
   return (
-    <html lang="en" data-theme="dim">
+    <html lang="en" data-theme="synthwave">
       <body className={inter.className}>
         <ReactQueryProvider>
           <HydrationBoundary state={dehydrate(queryClient)}>

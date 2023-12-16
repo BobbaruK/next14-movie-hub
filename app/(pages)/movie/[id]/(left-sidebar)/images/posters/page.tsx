@@ -38,7 +38,7 @@ const MoviePostersPage = ({
     <>
       <div className="appContaier flex flex-col lg:flex-row gap-8">
         <div className="lg:basis-1/4 xl:basis-2/12 ">
-          <div className="flex flex-col gap-4 shadow-md rounded-md  overflow-hidden">
+          <div className="flex flex-col gap-4 shadow-md shadow-primary rounded-md overflow-hidden ">
             <h1 className="py-4 px-2 m-0 bg-accent text-accent-content">
               Posters
             </h1>
@@ -57,6 +57,8 @@ const MoviePostersPage = ({
             languageParam={image_language}
             queryKey={RQ_MOVIE_IMAGES_KEY}
             imageSizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw(min-width: 1280px) 330px, (min-width: 1040px) calc(25vw - 24px), (min-width: 780px) calc(33.33vw - 19px), (min-width: 640px) calc(50vw - 22px), calc(100vw - 32px)"
+            grid="sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4"
+            imageClassName="sm:h-96 object-cover"
           />
         </div>
       </div>
