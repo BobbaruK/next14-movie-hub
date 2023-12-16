@@ -55,7 +55,7 @@ export const RQ_MOVIE_TRANSLATIONS_KEY = "translations-movie";
 export const RQ_MOVIE_TRANSLATIONS_ENDPOINT = (id: string) =>
   `movie/${id}/translations`;
 
-// Movie Translations
+// TV Shows Translations
 export const RQ_TV_SHOWS_TRANSLATIONS_KEY = "translations-tvshows";
 export const RQ_TV_SHOWS_TRANSLATIONS_ENDPOINT = (id: string) =>
   `tv/${id}/translations`;

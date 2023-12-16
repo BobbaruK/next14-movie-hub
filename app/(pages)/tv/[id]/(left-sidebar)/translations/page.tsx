@@ -1,4 +1,6 @@
+import { MainMovieTranslationsFiltering } from "@/app/components/client/MainMovieTranslationsFiltering";
 import { MainMovieLeftSidebarTemplate } from "@/app/components/server/MainMovieLeftSidebarTemplate";
+import { RQ_TV_SHOWS_TRANSLATIONS_KEY } from "@/app/constants";
 import { TVShowResponse } from "@/app/types/movies/tv/TVShowResponse";
 import movieMetadataTitle from "@/app/utils/movieMetadataTitle";
 import { Metadata } from "next";
@@ -6,9 +8,6 @@ import { Metadata } from "next";
 interface Props {
   params: {
     id: string;
-  };
-  searchParams: {
-    image_language: string | undefined;
   };
 }
 
@@ -26,12 +25,18 @@ export async function generateMetadata({
   };
 }
 
-const TVShowTranslationsPage = () => {
+const TVShowTranslationsPage = ({ params: { id } }: Props) => {
+  const actualId = parseInt(id);
   return (
     <>
       <MainMovieLeftSidebarTemplate
         title="Translations"
-        sidebar={<p>Sidebar</p>}
+        sidebar={
+          <MainMovieTranslationsFiltering
+            id={actualId}
+            queryKey={RQ_TV_SHOWS_TRANSLATIONS_KEY}
+          />
+        }
         content={<p>Main content</p>}
       />
     </>
