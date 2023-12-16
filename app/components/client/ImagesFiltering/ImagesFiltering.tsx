@@ -18,11 +18,11 @@ const ImagesFiltering = ({ id, type, languageParam, queryKey }: Props) => {
     queryKey: [RQ_LANGUAGES_KEY],
   });
 
-  const { data: images } = useQuery<ImagesResponse>({
+  const { data } = useQuery<ImagesResponse>({
     queryKey: [queryKey, id],
   });
 
-  const renderedImages = images![type];
+  const renderedImages = data![type];
 
   const renderedImagesLangs = [] as string[];
 

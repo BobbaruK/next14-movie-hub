@@ -6,7 +6,7 @@ import {
 } from "@/app/constants";
 import APIClient from "@/app/services/tmdbApiClient";
 import { ImagesResponse } from "@/app/types/movies/ImagesResponse";
-import { TVShowResponse } from "@/app/types/movies/TVShowResponse";
+import { TVShowResponse } from "@/app/types/movies/tv/TVShowResponse";
 import {
   HydrationBoundary,
   QueryClient,

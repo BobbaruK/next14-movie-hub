@@ -1,9 +1,9 @@
-import { Movie } from "@/app/types/movies/MoviesResponse";
+import { Movie } from "@/app/types/movies/movie/MoviesResponse";
+import { TVShow } from "@/app/types/movies/tv/TVShowsResponse";
+import instanceOf from "@/app/utils/instanceOf";
 import ReleaseDateUI from "@/app/utils/releaseDateUI";
 import Link from "next/link";
 import { TMDBImage } from "../../client/TMDBImage";
-import { TVShow } from "@/app/types/movies/TVShowsResponse";
-import instanceOf from "@/app/utils/instanceOf";
 
 interface Props {
   movie: Movie | TVShow;

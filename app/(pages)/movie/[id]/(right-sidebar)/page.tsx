@@ -1,6 +1,6 @@
 import MainMovieSection from "@/app/(pages)/MainMovieSection";
 import { RQ_MOVIE_KEY } from "@/app/constants";
-import { MovieResponse } from "@/app/types/movies/MovieResponse";
+import { MovieResponse } from "@/app/types/movies/movie/MovieResponse";
 import movieMetadataTitle from "@/app/utils/movieMetadataTitle";
 import { Metadata } from "next";
 

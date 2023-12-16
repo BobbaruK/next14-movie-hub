@@ -1,12 +1,12 @@
 import {
+  RQ_MOVIE_ENDPOINT,
   RQ_MOVIE_IMAGES_ENDPOINT,
   RQ_MOVIE_IMAGES_KEY,
-  RQ_MOVIE_ENDPOINT,
   RQ_MOVIE_KEY,
 } from "@/app/constants";
 import APIClient from "@/app/services/tmdbApiClient";
 import { ImagesResponse } from "@/app/types/movies/ImagesResponse";
-import { MovieResponse } from "@/app/types/movies/MovieResponse";
+import { MovieResponse } from "@/app/types/movies/movie/MovieResponse";
 import {
   HydrationBoundary,
   QueryClient,

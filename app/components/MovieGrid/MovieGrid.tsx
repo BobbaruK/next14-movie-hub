@@ -1,6 +1,6 @@
-import { MoviesResponse } from "@/app/types/movies/MoviesResponse";
+import { MoviesResponse } from "@/app/types/movies/movie/MoviesResponse";
 import { MovieCard } from "../Card/Movie";
-import { TVShowsResponse } from "@/app/types/movies/TVShowsResponse";
+import { TVShowsResponse } from "@/app/types/movies/tv/TVShowsResponse";
 
 interface Props {
   movies: MoviesResponse | TVShowsResponse | undefined;

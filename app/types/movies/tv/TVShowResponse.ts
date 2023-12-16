@@ -1,9 +1,9 @@
-import { CreatedBy } from "../movies/CreatedBy";
-import { Genre } from "../movies/GenreResponse";
-import { Language } from "../movies/Language";
-import { Network } from "../movies/Network";
-import { ProductionCompany } from "../movies/ProductionCompany";
-import { ProductionCountry } from "../movies/ProductionCountry";
+import { CreatedBy } from "../CreatedBy";
+import { Genre } from "../GenreResponse";
+import { Language } from "../Language";
+import { Network } from "../Network";
+import { ProductionCompany } from "../ProductionCompany";
+import { ProductionCountry } from "../ProductionCountry";
 import { LastEpisodeToAir } from "./LastEpisodeToAir";
 import { Season } from "./Season";
 

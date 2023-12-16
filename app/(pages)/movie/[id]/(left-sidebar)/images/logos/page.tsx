@@ -1,7 +1,7 @@
 import { ImageShowcase } from "@/app/components/client/ImageShowcase";
 import { ImagesFiltering } from "@/app/components/client/ImagesFiltering";
 import { RQ_MOVIE_IMAGES_KEY } from "@/app/constants";
-import { MovieResponse } from "@/app/types/movies/MovieResponse";
+import { MovieResponse } from "@/app/types/movies/movie/MovieResponse";
 import movieMetadataTitle from "@/app/utils/movieMetadataTitle";
 import { Metadata } from "next";
 

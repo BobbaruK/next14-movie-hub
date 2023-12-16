@@ -2,8 +2,8 @@
 import MovieGrid from "@/app/components/MovieGrid/MovieGrid";
 import MoviePagination from "@/app/components/MoviePagination/MoviePagination";
 import ImagesShowcaseProvider from "@/app/providers/ImageContext/ImagesShowcaseProvider";
-import { MoviesResponse } from "@/app/types/movies/MoviesResponse";
-import { TVShowsResponse } from "@/app/types/movies/TVShowsResponse";
+import { MoviesResponse } from "@/app/types/movies/movie/MoviesResponse";
+import { TVShowsResponse } from "@/app/types/movies/tv/TVShowsResponse";
 import moviesFetchConfig from "@/app/utils/moviesFetchConfig";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 

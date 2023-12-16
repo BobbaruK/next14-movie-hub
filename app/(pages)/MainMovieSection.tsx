@@ -1,7 +1,7 @@
 "use client";
 import { useQuery } from "@tanstack/react-query";
-import { MovieResponse } from "../types/movies/MovieResponse";
-import { TVShowResponse } from "../types/movies/TVShowResponse";
+import { MovieResponse } from "../types/movies/movie/MovieResponse";
+import { TVShowResponse } from "../types/movies/tv/TVShowResponse";
 import instanceOf from "../utils/instanceOf";
 
 // TODO: do this section maybe it will not be client component

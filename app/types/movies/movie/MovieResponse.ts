@@ -1,7 +1,7 @@
-import { Genre } from "./GenreResponse";
-import { Language } from "./Language";
-import { ProductionCompany } from "./ProductionCompany";
-import { ProductionCountry } from "./ProductionCountry";
+import { Genre } from "../GenreResponse";
+import { Language } from "../Language";
+import { ProductionCompany } from "../ProductionCompany";
+import { ProductionCountry } from "../ProductionCountry";
 
 export interface MovieResponse {
   adult: boolean;

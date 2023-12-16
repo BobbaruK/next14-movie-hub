@@ -1,4 +1,4 @@
-import { TVShowResponse } from "@/app/types/movies/TVShowResponse";
+import { TVShowResponse } from "@/app/types/movies/tv/TVShowResponse";
 import movieMetadataTitle from "@/app/utils/movieMetadataTitle";
 import { Metadata } from "next";
 

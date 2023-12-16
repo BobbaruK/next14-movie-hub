@@ -1,4 +1,4 @@
-import { MovieResponse } from "@/app/types/movies/MovieResponse";
+import { MovieResponse } from "@/app/types/movies/movie/MovieResponse";
 import movieMetadataTitle from "@/app/utils/movieMetadataTitle";
 import { Metadata } from "next";
 

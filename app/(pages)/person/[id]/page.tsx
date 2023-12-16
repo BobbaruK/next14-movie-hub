@@ -1,4 +1,4 @@
-import { People } from "@/app/types/movies/PeoplesResponse";
+import { People } from "@/app/types/people/PeoplesResponse";
 import { Metadata } from "next";
 
 interface Props {

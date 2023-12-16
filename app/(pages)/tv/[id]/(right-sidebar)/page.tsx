@@ -1,6 +1,6 @@
 import MainMovieSection from "@/app/(pages)/MainMovieSection";
 import { RQ_TVSHOW_KEY } from "@/app/constants";
-import { TVShowResponse } from "@/app/types/movies/TVShowResponse";
+import { TVShowResponse } from "@/app/types/movies/tv/TVShowResponse";
 import movieMetadataTitle from "@/app/utils/movieMetadataTitle";
 import { Metadata } from "next";
 

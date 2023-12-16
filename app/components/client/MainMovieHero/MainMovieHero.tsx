@@ -2,8 +2,8 @@
 
 import { RQ_CONFIG_KEY } from "@/app/constants";
 import { TMDB_API_Configuration } from "@/app/types/TMDB_API_Configuration";
-import { MovieResponse } from "@/app/types/movies/MovieResponse";
-import { TVShowResponse } from "@/app/types/movies/TVShowResponse";
+import { MovieResponse } from "@/app/types/movies/movie/MovieResponse";
+import { TVShowResponse } from "@/app/types/movies/tv/TVShowResponse";
 import BackdropPath, { BackdropSizes } from "@/app/utils/images/backdropPath";
 import PosterPath from "@/app/utils/images/posterPath";
 import instanceOf from "@/app/utils/instanceOf";
