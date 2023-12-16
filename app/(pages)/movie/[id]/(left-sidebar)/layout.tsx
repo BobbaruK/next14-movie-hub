@@ -1,5 +1,5 @@
+import { MainMovieNavigation } from "@/app/components/client/MainMovieNavigation";
 import { ReactNode } from "react";
-import MovieNavigation from "../MovieNavigation";
 interface Props {
   children: ReactNode;
   params: {
@@ -10,7 +10,7 @@ interface Props {
 const MainMovieLeftSidebarLayout = ({ children, params: { id } }: Props) => {
   return (
     <>
-      <MovieNavigation id={id} />
+      <MainMovieNavigation id={id} />
       {children}
     </>
   );

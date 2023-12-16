@@ -4,7 +4,7 @@ interface Props {
   id: string | number;
 }
 
-const MovieNavigation = ({ id }: Props) => {
+const MainMovieNavigation = ({ id }: Props) => {
   return (
     <div className="navbar bg-base-100 flex justify-center align-middle relative z-10">
       <div className="">
@@ -49,4 +49,4 @@ const MovieNavigation = ({ id }: Props) => {
   );
 };
 
-export default MovieNavigation;
+export default MainMovieNavigation;
