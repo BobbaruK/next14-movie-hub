@@ -2,6 +2,7 @@ import Link from "next/link";
 
 interface Props {
   id: string | number;
+  type: "movie" | "tv";
 }
 
 const MainMovieNavigation = ({ id }: Props) => {

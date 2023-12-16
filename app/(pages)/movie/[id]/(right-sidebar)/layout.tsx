@@ -16,7 +16,7 @@ const MainMovieRightSidebarLayout = ({ children, params: { id } }: Props) => {
 
   return (
     <>
-      <MainMovieNavigation id={movieId} />
+      <MainMovieNavigation id={movieId} type="movie" />
       <MainMovieHero id={movieId} queryKey={RQ_MOVIE_KEY} />
       <div className="appContaier flex flex-col lg:flex-row gap-8">
         <div className="lg:basis-3/4">{children}</div>

@@ -10,7 +10,7 @@ interface Props {
 const MainMovieLeftSidebarLayout = ({ children, params: { id } }: Props) => {
   return (
     <>
-      <MainMovieNavigation id={id} />
+      <MainMovieNavigation id={id} type="movie" />
       {children}
     </>
   );

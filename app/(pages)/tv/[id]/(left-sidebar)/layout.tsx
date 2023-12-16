@@ -1,6 +1,5 @@
-import { MainSidebar } from "@/app/components/Sidebar/main";
+import { MainTVShowNavigation } from "@/app/components/client/MainTVShowNavigation";
 import { ReactNode } from "react";
-import TVShowNavigation from "../TVShowNavigation";
 interface Props {
   children: ReactNode;
   params: {
@@ -11,7 +10,7 @@ interface Props {
 const MainTVShowLeftSidebarLayout = ({ children, params: { id } }: Props) => {
   return (
     <>
-      <TVShowNavigation id={id} />
+      <MainTVShowNavigation id={id} />
       {children}
     </>
   );

@@ -4,7 +4,7 @@ interface Props {
   id: string | number;
 }
 
-const TVShowNavigation = ({ id }: Props) => {
+const MainTVShowNavigation = ({ id }: Props) => {
   return (
     <div className="navbar bg-base-100 flex justify-center align-middle relative z-10">
       <div className="navbar-center ">
@@ -52,4 +52,4 @@ const TVShowNavigation = ({ id }: Props) => {
   );
 };
 
-export default TVShowNavigation;
+export default MainTVShowNavigation;

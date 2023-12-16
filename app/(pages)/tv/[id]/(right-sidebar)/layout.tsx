@@ -1,8 +1,8 @@
 import { MainSidebar } from "@/app/components/Sidebar/main";
 import { MainMovieHero } from "@/app/components/client/MainMovieHero";
+import { MainTVShowNavigation } from "@/app/components/client/MainTVShowNavigation";
 import { RQ_TVSHOW_KEY } from "@/app/constants";
 import { ReactNode } from "react";
-import TVShowNavigation from "../TVShowNavigation";
 
 interface Props {
   children: ReactNode;
@@ -16,7 +16,7 @@ const MainTVShowRightSidebarLayout = ({ children, params: { id } }: Props) => {
 
   return (
     <>
-      <TVShowNavigation id={movieId} />
+      <MainTVShowNavigation id={movieId} />
       <MainMovieHero id={movieId} queryKey={RQ_TVSHOW_KEY} />
       <div className="appContaier flex flex-col lg:flex-row gap-8">
         <div className="lg:basis-3/4">{children}</div>
