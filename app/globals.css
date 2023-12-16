@@ -16,6 +16,10 @@
   .appContaier {
     @apply max-w-screen-xl mx-auto px-4;
   }
+
+  .imagesSidebar {
+    @apply flex flex-col gap-4 shadow-md shadow-accent border border-accent rounded-md overflow-hidden;
+  }
 }
 
 @layer utilities {

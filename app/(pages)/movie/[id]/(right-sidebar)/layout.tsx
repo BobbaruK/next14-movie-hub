@@ -1,5 +1,5 @@
-import MainMovieHero from "@/app/(pages)/MainMovieHero";
 import { MainSidebar } from "@/app/components/Sidebar/main";
+import { MainMovieHero } from "@/app/components/client/MainMovieHero";
 import { RQ_MOVIE_KEY } from "@/app/constants";
 import { ReactNode } from "react";
 import MovieNavigation from "../MovieNavigation";

@@ -1,5 +1,5 @@
 import { Image } from "@/app/types/movies/ImagesResponse";
-import { TMDBImage } from "../../TMDBImage";
+import { TMDBImage } from "../../client/TMDBImage";
 import ImageLanguage from "./ImageLanguage";
 import Link from "next/link";
 
@@ -12,7 +12,7 @@ interface Props {
 const ImageCard = ({ image, href, imageSizes }: Props) => {
   return (
     <div>
-      <div className="card bg-base-100 h-full overflow-hidden shadow-md shadow-primary">
+      <div className="card bg-base-100 h-full overflow-hidden shadow-md shadow-accent">
         <Link href={href} target="_blank">
           <TMDBImage
             alt={image.file_path}

@@ -1,7 +1,7 @@
 import { Movie } from "@/app/types/movies/MoviesResponse";
 import ReleaseDateUI from "@/app/utils/releaseDateUI";
 import Link from "next/link";
-import { TMDBImage } from "../../TMDBImage";
+import { TMDBImage } from "../../client/TMDBImage";
 import { TVShow } from "@/app/types/movies/TVShowsResponse";
 import instanceOf from "@/app/utils/instanceOf";
 

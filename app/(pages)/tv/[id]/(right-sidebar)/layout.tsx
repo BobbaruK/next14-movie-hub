@@ -1,8 +1,8 @@
 import { MainSidebar } from "@/app/components/Sidebar/main";
+import { MainMovieHero } from "@/app/components/client/MainMovieHero";
+import { RQ_TVSHOW_KEY } from "@/app/constants";
 import { ReactNode } from "react";
 import TVShowNavigation from "../TVShowNavigation";
-import MainMovieHero from "@/app/(pages)/MainMovieHero";
-import { RQ_TVSHOW_KEY } from "@/app/constants";
 
 interface Props {
   children: ReactNode;

@@ -1,5 +1,5 @@
-import ImageShowcase from "@/app/(pages)/ImageShowcase";
-import ImagesSidebar from "@/app/(pages)/ImagesSidebar";
+import { ImageShowcase } from "@/app/components/client/ImageShowcase";
+import { ImagesFiltering } from "@/app/components/client/ImagesFiltering";
 import { RQ_TVSHOWS_IMAGES_KEY } from "@/app/constants";
 import { TVShowResponse } from "@/app/types/movies/TVShowResponse";
 import movieMetadataTitle from "@/app/utils/movieMetadataTitle";
@@ -38,11 +38,11 @@ const TVShowLogosPage = ({
     <>
       <div className="appContaier flex flex-col lg:flex-row gap-8">
         <div className="lg:basis-1/4 xl:basis-2/12 ">
-          <div className="flex flex-col gap-4 shadow-md rounded-md  overflow-hidden">
+          <div className="imagesSidebar">
             <h1 className="py-4 px-2 m-0 bg-accent text-accent-content">
               Logos
             </h1>
-            <ImagesSidebar
+            <ImagesFiltering
               id={actualId}
               type="logos"
               languageParam={image_language}

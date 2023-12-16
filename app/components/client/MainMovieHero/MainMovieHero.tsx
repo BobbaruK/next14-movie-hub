@@ -1,17 +1,16 @@
 "use client";
 
+import { RQ_CONFIG_KEY } from "@/app/constants";
+import { TMDB_API_Configuration } from "@/app/types/TMDB_API_Configuration";
+import { MovieResponse } from "@/app/types/movies/MovieResponse";
+import { TVShowResponse } from "@/app/types/movies/TVShowResponse";
+import BackdropPath, { BackdropSizes } from "@/app/utils/images/backdropPath";
+import PosterPath from "@/app/utils/images/posterPath";
+import instanceOf from "@/app/utils/instanceOf";
+import ReleaseDateUI from "@/app/utils/releaseDateUI";
 import { useQuery } from "@tanstack/react-query";
-import Image from "next/image";
 import React from "react";
-import { RQ_CONFIG_KEY } from "../constants";
-import { TMDB_API_Configuration } from "../types/TMDB_API_Configuration";
-import { MovieResponse } from "../types/movies/MovieResponse";
-import { TVShowResponse } from "../types/movies/TVShowResponse";
-import BackdropPath, { BackdropSizes } from "../utils/images/backdropPath";
-import PosterPath from "../utils/images/posterPath";
-import instanceOf from "../utils/instanceOf";
-import ReleaseDateUI from "../utils/releaseDateUI";
-import { TMDBImage } from "../components/TMDBImage";
+import { TMDBImage } from "../TMDBImage";
 
 interface Props {
   id: number;

@@ -16,7 +16,7 @@ import {
 import "./globals.css";
 import APIClient from "./services/tmdbApiClient";
 import { TMDB_API_Configuration } from "./types/TMDB_API_Configuration";
-import { ConfigErrorToast } from "./components/ConfigErrorToast";
+import { ConfigErrorToast } from "./components/client/ConfigErrorToast";
 import { Language } from "./types/movies/Language";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -48,7 +48,7 @@ export default async function RootLayout({
   });
 
   return (
-    <html lang="en" data-theme="synthwave">
+    <html lang="en" data-theme="halloween">
       <body className={inter.className}>
         <ReactQueryProvider>
           <HydrationBoundary state={dehydrate(queryClient)}>
