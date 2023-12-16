@@ -1,4 +1,5 @@
 import { MainMovieTranslationsFiltering } from "@/app/components/client/MainMovieTranslationsFiltering";
+import { ShowcaseTranslationsTVShow } from "@/app/components/client/ShowcaseTranslations/tv";
 import { MainMovieLeftSidebarTemplate } from "@/app/components/server/MainMovieLeftSidebarTemplate";
 import { RQ_TV_SHOWS_TRANSLATIONS_KEY } from "@/app/constants";
 import { TVShowResponse } from "@/app/types/movies/tv/TVShowResponse";
@@ -37,7 +38,12 @@ const TVShowTranslationsPage = ({ params: { id } }: Props) => {
             queryKey={RQ_TV_SHOWS_TRANSLATIONS_KEY}
           />
         }
-        content={<p>Main content</p>}
+        content={
+          <ShowcaseTranslationsTVShow
+            id={actualId}
+            queryKey={RQ_TV_SHOWS_TRANSLATIONS_KEY}
+          />
+        }
       />
     </>
   );

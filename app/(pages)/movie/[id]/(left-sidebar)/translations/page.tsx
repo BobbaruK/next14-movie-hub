@@ -1,4 +1,5 @@
 import { MainMovieTranslationsFiltering } from "@/app/components/client/MainMovieTranslationsFiltering";
+import { ShowcaseTranslationsMovies } from "@/app/components/client/ShowcaseTranslations/movie";
 import { MainMovieLeftSidebarTemplate } from "@/app/components/server/MainMovieLeftSidebarTemplate";
 import { RQ_MOVIE_TRANSLATIONS_KEY } from "@/app/constants";
 import { MovieResponse } from "@/app/types/movies/movie/MovieResponse";
@@ -38,7 +39,12 @@ const MovieTranslationsPage = ({ params: { id } }: Props) => {
             queryKey={RQ_MOVIE_TRANSLATIONS_KEY}
           />
         }
-        content={"aici vine content comp"}
+        content={
+          <ShowcaseTranslationsMovies
+            id={actualId}
+            queryKey={RQ_MOVIE_TRANSLATIONS_KEY}
+          />
+        }
       />
     </>
   );

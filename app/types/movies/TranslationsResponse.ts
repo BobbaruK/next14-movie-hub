@@ -1,15 +1,12 @@
-import { MovieTranslationData } from "./movie/MovieTranslationData";
-import { TVShowTranslationData } from "./tv/TVShowTranslationData";
-
-export interface TranslationsResponse {
+export interface TranslationsResponse<T> {
   id: number;
-  translations: Translation[];
+  translations: Translation<T>[];
 }
 
-export interface Translation {
+export interface Translation<T> {
   iso_3166_1: string;
   iso_639_1: string;
   name: string;
   english_name: string;
-  data: MovieTranslationData[] | TVShowTranslationData[];
+  data: T;
 }

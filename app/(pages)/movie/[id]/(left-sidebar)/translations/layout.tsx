@@ -4,6 +4,7 @@ import {
 } from "@/app/constants";
 import APIClient from "@/app/services/tmdbApiClient";
 import { TranslationsResponse } from "@/app/types/movies/TranslationsResponse";
+import { MovieTranslationData } from "@/app/types/movies/movie/MovieTranslationData";
 import {
   HydrationBoundary,
   QueryClient,
@@ -26,9 +27,9 @@ const MainMovieTranslationsLayout = async ({
 
   const queryClient = new QueryClient();
 
-  const apiClientTranslations = new APIClient<TranslationsResponse>(
-    RQ_MOVIE_TRANSLATIONS_ENDPOINT(id)
-  );
+  const apiClientTranslations = new APIClient<
+    TranslationsResponse<MovieTranslationData>
+  >(RQ_MOVIE_TRANSLATIONS_ENDPOINT(id));
   await queryClient.prefetchQuery({
     queryKey: [RQ_MOVIE_TRANSLATIONS_KEY, actualId],
     queryFn: () => apiClientTranslations.getAll(),

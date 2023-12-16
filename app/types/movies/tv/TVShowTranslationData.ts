@@ -1,6 +1,6 @@
 export interface TVShowTranslationData {
+  homepage: string;
   name: string;
   overview: string;
-  homepage: string;
   tagline: string;
 }
