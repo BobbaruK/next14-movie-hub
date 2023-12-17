@@ -13,7 +13,7 @@ import Image from "next/image";
 
 interface Props {
   alt: string;
-  path: string | null;
+  path: string | undefined |null;
   width: number;
   height: number;
   sizes: string;
