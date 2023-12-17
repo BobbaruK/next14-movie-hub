@@ -1,12 +1,6 @@
 import { TMDB_API_Configuration } from "@/app/types/TMDB_API_Configuration";
 import noImage from "../../../public/no-entry-sign.svg";
-
-export const enum ProfileSizes {
-  "w45" = 0,
-  "w185",
-  "h632",
-  "original",
-}
+import { ProfileSizes } from "@/app/types/imageSizes";
 
 const ProfilePath = (
   config: TMDB_API_Configuration | null | undefined,

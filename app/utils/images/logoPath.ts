@@ -1,15 +1,6 @@
 import { TMDB_API_Configuration } from "@/app/types/TMDB_API_Configuration";
 import noImage from "../../../public/no-entry-sign.svg";
-
-export const enum LogoSizes {
-  "w45" = 0,
-  "w92",
-  "w154",
-  "w185",
-  "w300",
-  "w500",
-  "original",
-}
+import { LogoSizes } from "@/app/types/imageSizes";
 
 const LogoPath = (
   config: TMDB_API_Configuration | null | undefined,

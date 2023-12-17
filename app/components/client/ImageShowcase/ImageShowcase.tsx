@@ -3,9 +3,10 @@
 import { RQ_CONFIG_KEY, RQ_LANGUAGES_KEY } from "@/app/constants";
 import ImagesShowcaseProvider from "@/app/providers/ImageContext/ImagesShowcaseProvider";
 import { TMDB_API_Configuration } from "@/app/types/TMDB_API_Configuration";
+import { BackdropSizes } from "@/app/types/imageSizes";
 import { ImageType, ImagesResponse } from "@/app/types/movies/ImagesResponse";
 import { Language } from "@/app/types/movies/Language";
-import BackdropPath, { BackdropSizes } from "@/app/utils/images/backdropPath";
+import BackdropPath from "@/app/utils/images/backdropPath";
 import { useQuery } from "@tanstack/react-query";
 import { ImageCard } from "../../Card/Image";
 

@@ -1,9 +1,11 @@
+import { RQ_CONFIG_KEY } from "@/app/constants";
+import { TMDB_API_Configuration } from "@/app/types/TMDB_API_Configuration";
 import { Movie } from "@/app/types/movies/movie/MoviesResponse";
 import { TVShow } from "@/app/types/movies/tv/TVShowsResponse";
 import instanceOf from "@/app/utils/instanceOf";
 import ReleaseDateUI from "@/app/utils/releaseDateUI";
+import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
-import { TMDBImage } from "../../client/TMDBImage";
 
 interface Props {
   movie: Movie | TVShow;
@@ -15,6 +17,12 @@ const MovieCard = ({ movie }: Props) => {
     "--thickness": "3px",
     "--size": "2rem",
   } as React.CSSProperties;
+
+  const { data: config } = useQuery<TMDB_API_Configuration>({
+    queryKey: [RQ_CONFIG_KEY],
+  });
+
+  console.log(config?.images.secure_base_url);
 
   const instanceOfMovie = instanceOf<Movie>(movie);
 
@@ -30,14 +38,15 @@ const MovieCard = ({ movie }: Props) => {
     <div className="card bg-base-100 shadow-md shadow-primary">
       <figure>
         <Link href={link} className="w-full">
-          <TMDBImage
+          {/* <TMDBImage
             alt={title}
             path={movie.poster_path}
             type="posters"
             width={348}
             height={521}
             sizes="(min-width: 1280px) 219px, (min-width: 1040px) calc(25vw - 24px), (min-width: 780px) calc(33.33vw - 19px), (min-width: 640px) calc(50vw - 22px), calc(100vw - 32px)"
-          />
+          /> */}
+          <img src="" alt="" />
         </Link>
       </figure>
       <div className="card-body p-4 flex justify-between relative pt-7">

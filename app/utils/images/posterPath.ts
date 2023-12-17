@@ -1,15 +1,6 @@
 import { TMDB_API_Configuration } from "@/app/types/TMDB_API_Configuration";
 import noImage from "../../../public/no-entry-sign.svg";
-
-export const enum PosterSizes {
-  "w92" = 0,
-  "w154",
-  "w185",
-  "w342",
-  "w500",
-  "w780",
-  "original",
-}
+import { PosterSizes } from "@/app/types/imageSizes";
 
 const PosterPath = (
   config: TMDB_API_Configuration | null | undefined,
