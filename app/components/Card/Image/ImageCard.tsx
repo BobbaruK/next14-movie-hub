@@ -14,6 +14,14 @@ const ImageCard = ({ image, href, imageSizes }: Props) => {
     <div>
       <div className="card bg-base-100 h-full overflow-hidden shadow-md shadow-accent">
         <Link href={href} target="_blank">
+          {/* <img
+            className="max-w-full sm:h-72 object-cover"
+            src={`https://image.tmdb.org/t/p/w780${image.file_path}`}
+            alt={"dsa"}
+            width={3840}
+            height={2160}
+            loading="lazy"
+          /> */}
           <TMDBImage
             alt={image.file_path}
             path={image.file_path}

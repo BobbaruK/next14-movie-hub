@@ -6,6 +6,7 @@ import instanceOf from "@/app/utils/instanceOf";
 import ReleaseDateUI from "@/app/utils/releaseDateUI";
 import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
+import { TMDBImage } from "../../client/TMDBImage";
 
 interface Props {
   movie: Movie | TVShow;
@@ -22,7 +23,7 @@ const MovieCard = ({ movie }: Props) => {
     queryKey: [RQ_CONFIG_KEY],
   });
 
-  console.log(config?.images.secure_base_url);
+  // console.log(config?.images.secure_base_url);
 
   const instanceOfMovie = instanceOf<Movie>(movie);
 
@@ -46,7 +47,14 @@ const MovieCard = ({ movie }: Props) => {
             height={521}
             sizes="(min-width: 1280px) 219px, (min-width: 1040px) calc(25vw - 24px), (min-width: 780px) calc(33.33vw - 19px), (min-width: 640px) calc(50vw - 22px), calc(100vw - 32px)"
           /> */}
-          <img src="" alt="" />
+          <img
+            className="max-w-full sm:h-72 object-cover"
+            src={`https://image.tmdb.org/t/p/w300${movie?.poster_path}`}
+            alt={title}
+            width={3840}
+            height={2160}
+            loading="lazy"
+          />
         </Link>
       </figure>
       <div className="card-body p-4 flex justify-between relative pt-7">

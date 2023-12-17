@@ -66,39 +66,30 @@ const MainMovieHero = ({ id, queryKey }: Props) => {
             srcSet={`https://image.tmdb.org/t/p/w300${movie?.backdrop_path} 300w, https://image.tmdb.org/t/p/w780${movie?.backdrop_path} 780w, https://image.tmdb.org/t/p/w1280${movie?.backdrop_path} 1280w, https://image.tmdb.org/t/p/original${movie?.backdrop_path} 3840w`}
             loading="eager"
           />
-          {/* <TMDBImage
-            alt={title}
-            width={3840}
-            height={2160}
-            path={"original/nVRyd8hlg0ZLxBn9RaI7mUMQLnz.jpg"}
-            sizes="100vw"
-            type="backdrops"
-          /> */}
         </div>
-        <div className="absolute -z-10 w-full h-full inset-0 bg-primary opacity-95 bg-gradient-to-r from-primary to-secondary"></div>
-        <div className="appContaier flex flex-col lg:flex-row gap-8 text-primary-content">
-          <div className="lg:basis-1/4">
-            <div className="rounded-lg w-full overflow-hidden">
-              {/* <TMDBImage
-                alt={title}
-                width={384}
-                height={576}
-                path={posterPath}
-                sizes="(min-width: 1380px) 304px, (min-width: 1040px) calc(18.75vw + 49px), calc(100vw - 32px)"
-                type="posters"
-              /> */}
+        <div className="absolute -z-10 w-full h-full inset-0 bg-primary opacity-80 bg-gradient-to-r from-primary to-secondary"></div>
+        <div className="appContaier flex flex-col md:flex-row gap-8 text-primary-content">
+          <div className="sm:basis-2/6 lg:basis-1/4 flex justify-center items-center">
+            <div className="rounded-lg overflow-hidden max-w-[342px]">
               <img
+                src={`https://image.tmdb.org/t/p/w342${movie?.poster_path}`}
+                alt={title}
+                width={1136}
+                height={1704}
+              />
+              {/* <img
                 src={`https://image.tmdb.org/t/p/original${movie?.poster_path}`}
                 alt={title}
                 width={1136}
                 height={1704}
-                sizes="(min-width: 1380px) 304px, (min-width: 1040px) calc(18.75vw + 49px), calc(100vw - 32px)"
-                srcSet={`https://image.tmdb.org/t/p/w92${movie?.poster_path} 92w, https://image.tmdb.org/t/p/w154${movie?.poster_path} 154w, https://image.tmdb.org/t/p/w185${movie?.poster_path} 185w, https://image.tmdb.org/t/p/w342${movie?.poster_path} 342w, https://image.tmdb.org/t/p/w500${movie?.poster_path} 500w, https://image.tmdb.org/t/p/w780${movie?.poster_path} 780w, https://image.tmdb.org/t/p/original${movie?.poster_path} 1136w`}
+                sizes=""
+                srcSet={`
+                 https://image.tmdb.org/t/p/w342${movie?.poster_path} 342w, https://image.tmdb.org/t/p/w500${movie?.poster_path} 500w, https://image.tmdb.org/t/p/w780${movie?.poster_path} 780w, https://image.tmdb.org/t/p/original${movie?.poster_path} 2000w`}
                 loading="eager"
-              />
+              /> */}
             </div>
           </div>
-          <div className="lg:basis-3/4 flex flex-col gap-8 justify-center">
+          <div className="sm:basis-4/6 lg:basis-3/4 flex flex-col gap-8 justify-center">
             <h1 className="m-0">
               {title} ({year})
             </h1>
