@@ -65,6 +65,7 @@ const MainMovieHero = ({ id, queryKey }: Props) => {
             height={2160}
             sizes="100vw"
             srcSet={`https://image.tmdb.org/t/p/w300${movie?.backdrop_path} 300w, https://image.tmdb.org/t/p/w780${movie?.backdrop_path} 780w, https://image.tmdb.org/t/p/w1280${movie?.backdrop_path} 1280w, https://image.tmdb.org/t/p/original${movie?.backdrop_path} 3840w`}
+            loading="eager"
           />
           {/* <TMDBImage
             alt={title}
@@ -94,6 +95,7 @@ const MainMovieHero = ({ id, queryKey }: Props) => {
                 height={1704}
                 sizes="(min-width: 1380px) 304px, (min-width: 1040px) calc(18.75vw + 49px), calc(100vw - 32px)"
                 srcSet={`https://image.tmdb.org/t/p/w92${movie?.poster_path} 92w, https://image.tmdb.org/t/p/w154${movie?.poster_path} 154w, https://image.tmdb.org/t/p/w185${movie?.poster_path} 185w, https://image.tmdb.org/t/p/w342${movie?.poster_path} 342w, https://image.tmdb.org/t/p/w500${movie?.poster_path} 500w, https://image.tmdb.org/t/p/w780${movie?.poster_path} 780w, https://image.tmdb.org/t/p/original${movie?.poster_path} 1136w`}
+                loading="eager"
               />
             </div>
           </div>
