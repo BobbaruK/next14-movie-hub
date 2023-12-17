@@ -28,7 +28,7 @@ const TMDBImage = ({ alt, path, width, height, sizes, type }: Props) => {
 
   switch (type) {
     case "posters":
-      posterPath = PosterPath(data, path, PosterSizes.w500);
+      posterPath = PosterPath(data, path, PosterSizes.w342);
       break;
 
     case "backdrops":
@@ -52,11 +52,12 @@ const TMDBImage = ({ alt, path, width, height, sizes, type }: Props) => {
         src={posterPath}
         placeholder="blur"
         blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII="
-        // alt={alt}
-        alt={"if image is not loaded, failed with a status of 402 - payment"}
+        alt={alt}
+        // alt={"if image is not loaded, failed with a status of 402 - payment"}
         width={width}
         height={height}
         sizes={sizes}
+        unoptimized
         // sizes="(min-width: 1280px) 219px, (min-width: 1040px) calc(25vw - 24px), (min-width: 780px) calc(33.33vw - 19px), (min-width: 640px) calc(50vw - 22px), (min-width: 580px) 500px, 89.23vw"
       />
     </>
