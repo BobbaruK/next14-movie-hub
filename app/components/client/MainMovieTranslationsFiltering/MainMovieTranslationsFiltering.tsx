@@ -2,7 +2,7 @@
 
 import { RQ_LANGUAGES_KEY } from "@/app/constants";
 import { Language } from "@/app/types/movies/Language";
-import { TranslationsResponse } from "@/app/types/movies/TranslationsResponse";
+import { TMDB_TranslationsResponse } from "@/app/types/movies/TranslationsResponse";
 import { MovieTranslationData } from "@/app/types/movies/movie/MovieTranslationData";
 import { TVShowTranslationData } from "@/app/types/movies/tv/TVShowTranslationData";
 import { useQuery } from "@tanstack/react-query";
@@ -27,7 +27,7 @@ const MainMovieTranslationsFiltering = ({ id, queryKey }: Props) => {
    * TranslationsResponse because we dont need
    * the data in this file
    */
-  const { data } = useQuery<TranslationsResponse<{}>>({
+  const { data } = useQuery<TMDB_TranslationsResponse<{}>>({
     queryKey: [queryKey, id],
   });
 

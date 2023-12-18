@@ -1,6 +1,6 @@
 "use client";
 
-import { TranslationsResponse } from "@/app/types/movies/TranslationsResponse";
+import { TMDB_TranslationsResponse } from "@/app/types/movies/TranslationsResponse";
 import { MovieTranslationData } from "@/app/types/movies/movie/MovieTranslationData";
 import { useQuery } from "@tanstack/react-query";
 
@@ -10,7 +10,7 @@ interface Props {
 }
 
 const ShowcaseTranslationsMovies = ({ id, queryKey }: Props) => {
-  const { data } = useQuery<TranslationsResponse<MovieTranslationData>>({
+  const { data } = useQuery<TMDB_TranslationsResponse<MovieTranslationData>>({
     queryKey: [queryKey, id],
   });
 
