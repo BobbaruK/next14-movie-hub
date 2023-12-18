@@ -1,8 +1,14 @@
+import { MyApiResponseType } from "../MyApiResponseType";
+
 export interface MoviesResponse {
   page: number;
   results: Movie[];
   total_pages: number;
   total_results: number;
+}
+
+export interface MyMoviesResponse extends MoviesResponse {
+  responseType: MyApiResponseType;
 }
 
 export interface Movie {

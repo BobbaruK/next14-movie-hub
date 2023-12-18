@@ -1,8 +1,14 @@
+import { MyApiResponseType } from "../MyApiResponseType";
+
 export interface TVShowsResponse {
   page: number;
   results: TVShow[];
   total_pages: number;
   total_results: number;
+}
+
+export interface MyTVShowsResponse extends TVShowsResponse {
+  responseType: MyApiResponseType;
 }
 
 export interface TVShow {
