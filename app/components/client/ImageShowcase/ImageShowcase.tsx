@@ -43,6 +43,7 @@ const ImageShowcase = ({
     isLoading: imagesIsLoading,
   } = useQuery<ImagesResponse>({
     queryKey: [queryKey, id],
+    select: (data) => ({ ...data, type: "images" }),
   });
 
   if (imagesError)

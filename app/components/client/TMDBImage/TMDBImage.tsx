@@ -11,16 +11,33 @@ import PosterPath from "@/app/utils/images/posterPath";
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 
-interface Props {
+interface BaseProps {
   alt: string;
-  path: string | undefined |null;
+  path: string | undefined | null;
   width: number;
   height: number;
-  sizes: string;
+  sizes?: string;
   type: ImageType;
 }
 
-const TMDBImage = ({ alt, path, width, height, sizes, type }: Props) => {
+interface Backdrops extends BaseProps {
+  type: "backdrops";
+  size?: BackdropSizes;
+}
+
+interface Logos extends BaseProps {
+  type: "logos";
+  size?: LogoSizes;
+}
+
+interface Posters extends BaseProps {
+  type: "posters";
+  size?: PosterSizes;
+}
+
+type Props = Backdrops | Logos | Posters;
+
+const TMDBImage = ({ alt, path, width, height, sizes, type, size }: Props) => {
   const { data } = useQuery<TMDB_API_Configuration>({
     queryKey: [RQ_CONFIG_KEY],
   });
@@ -29,15 +46,15 @@ const TMDBImage = ({ alt, path, width, height, sizes, type }: Props) => {
 
   switch (type) {
     case "posters":
-      posterPath = PosterPath(data, path, PosterSizes.w342);
+      posterPath = PosterPath(data, path, size || PosterSizes.w342);
       break;
 
     case "backdrops":
-      posterPath = BackdropPath(data, path, BackdropSizes.w780);
+      posterPath = BackdropPath(data, path, size || BackdropSizes.w780);
       break;
 
     case "logos":
-      posterPath = LogoPath(data, path, LogoSizes.w500);
+      posterPath = LogoPath(data, path, size || LogoSizes.w500);
       break;
 
     default:
@@ -47,19 +64,16 @@ const TMDBImage = ({ alt, path, width, height, sizes, type }: Props) => {
   const imageDetails = useImageContext();
 
   return (
-    <>
+    <>{type}
       <Image
         className={`max-w-full ${imageDetails.className || ""}`}
         src={posterPath}
         placeholder="blur"
         blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII="
         alt={alt}
-        // alt={"if image is not loaded, failed with a status of 402 - payment"}
         width={width}
         height={height}
         sizes={sizes}
-        unoptimized
-        // sizes="(min-width: 1280px) 219px, (min-width: 1040px) calc(25vw - 24px), (min-width: 780px) calc(33.33vw - 19px), (min-width: 640px) calc(50vw - 22px), (min-width: 580px) 500px, 89.23vw"
       />
     </>
   );

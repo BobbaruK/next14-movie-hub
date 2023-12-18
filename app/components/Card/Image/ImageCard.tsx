@@ -1,10 +1,11 @@
-import { Image } from "@/app/types/movies/ImagesResponse";
+import { BackdropSizes } from "@/app/types/imageSizes";
+import { ImageShape } from "@/app/types/movies/ImagesResponse";
+import Link from "next/link";
 import { TMDBImage } from "../../client/TMDBImage";
 import ImageLanguage from "./ImageLanguage";
-import Link from "next/link";
 
 interface Props {
-  image: Image;
+  image: ImageShape;
   href: string;
   imageSizes: string;
 }
@@ -29,6 +30,7 @@ const ImageCard = ({ image, href, imageSizes }: Props) => {
             height={image.height}
             width={image.width}
             sizes={imageSizes}
+            size={BackdropSizes.w780}
           />
         </Link>
         <div className="flex flex-col gap-4 items-start p-3 ">

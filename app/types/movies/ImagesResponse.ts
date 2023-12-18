@@ -1,11 +1,11 @@
 export interface ImagesResponse {
   id: number;
-  backdrops: Image[];
-  logos: Image[];
-  posters: Image[];
+  backdrops: ImageShape[];
+  logos: ImageShape[];
+  posters: ImageShape[];
 }
 
-export interface Image {
+export interface ImageShape {
   aspect_ratio: number;
   height: number;
   iso_639_1: string | null;

@@ -7,6 +7,7 @@ import ReleaseDateUI from "@/app/utils/releaseDateUI";
 import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
 import { TMDBImage } from "../../client/TMDBImage";
+import { PosterSizes } from "@/app/types/imageSizes";
 
 interface Props {
   movie: Movie | TVShow;
@@ -46,6 +47,7 @@ const MovieCard = ({ movie }: Props) => {
             width={348}
             height={521}
             sizes="(min-width: 1280px) 219px, (min-width: 1040px) calc(25vw - 24px), (min-width: 780px) calc(33.33vw - 19px), (min-width: 640px) calc(50vw - 22px), calc(100vw - 32px)"
+            size={PosterSizes.w342}
           />
           {/* <img
             className="max-w-full sm:h-72 object-cover"

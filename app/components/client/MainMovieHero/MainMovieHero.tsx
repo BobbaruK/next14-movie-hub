@@ -2,7 +2,7 @@
 
 import { RQ_CONFIG_KEY } from "@/app/constants";
 import { TMDB_API_Configuration } from "@/app/types/TMDB_API_Configuration";
-import { BackdropSizes } from "@/app/types/imageSizes";
+import { BackdropSizes, PosterSizes } from "@/app/types/imageSizes";
 import { MovieResponse } from "@/app/types/movies/movie/MovieResponse";
 import { TVShowResponse } from "@/app/types/movies/tv/TVShowResponse";
 import BackdropPath from "@/app/utils/images/backdropPath";
@@ -12,6 +12,7 @@ import ReleaseDateUI from "@/app/utils/releaseDateUI";
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { TMDBImage } from "../TMDBImage";
+import Image from "next/image";
 
 interface Props {
   id: number;
@@ -58,7 +59,7 @@ const MainMovieHero = ({ id, queryKey }: Props) => {
     <>
       <div className="py-20 relative">
         <div className="absolute -z-20 w-full h-full inset-0 [&>img]:h-full [&>img]:w-full [&>img]:object-cover">
-          {/* <img
+          <img
             src={`https://image.tmdb.org/t/p/original${movie?.backdrop_path}`}
             alt={title}
             width={3840}
@@ -66,14 +67,6 @@ const MainMovieHero = ({ id, queryKey }: Props) => {
             sizes="100vw"
             srcSet={`https://image.tmdb.org/t/p/w300${movie?.backdrop_path} 300w, https://image.tmdb.org/t/p/w780${movie?.backdrop_path} 780w, https://image.tmdb.org/t/p/w1280${movie?.backdrop_path} 1280w, https://image.tmdb.org/t/p/original${movie?.backdrop_path} 3840w`}
             loading="eager"
-          /> */}
-          <TMDBImage
-            alt={title}
-            path={movie?.backdrop_path}
-            type="backdrops"
-            width={3840}
-            height={2160}
-            sizes="100vw"
           />
         </div>
         <div className="absolute -z-10 w-full h-full inset-0 bg-primary opacity-80 bg-gradient-to-r from-primary to-secondary"></div>
@@ -87,6 +80,7 @@ const MainMovieHero = ({ id, queryKey }: Props) => {
                 width={1136}
                 height={1704}
                 sizes="(min-width: 1280px) 219px, (min-width: 1040px) calc(25vw - 24px), (min-width: 780px) calc(33.33vw - 19px), (min-width: 640px) calc(50vw - 22px), calc(100vw - 32px)"
+                size={PosterSizes.w342}
               />
             </div>
           </div>
