@@ -4,7 +4,7 @@ import { RQ_CONFIG_KEY, RQ_LANGUAGES_KEY } from "@/app/constants";
 import ImagesShowcaseProvider from "@/app/providers/ImageContext/ImagesShowcaseProvider";
 import { TMDB_API_Configuration } from "@/app/types/TMDB_API_Configuration";
 import { BackdropSizes } from "@/app/types/imageSizes";
-import { ImageType, ImagesResponse } from "@/app/types/movies/ImagesResponse";
+import { ImageType, TMDB_ImagesResponse } from "@/app/types/movies/ImagesResponse";
 import { Language } from "@/app/types/movies/Language";
 import BackdropPath from "@/app/utils/images/backdropPath";
 import { useQuery } from "@tanstack/react-query";
@@ -41,7 +41,7 @@ const ImageShowcase = ({
     data: images,
     error: imagesError,
     isLoading: imagesIsLoading,
-  } = useQuery<ImagesResponse>({
+  } = useQuery<TMDB_ImagesResponse>({
     queryKey: [queryKey, id],
     select: (data) => ({ ...data, type: "images" }),
   });

@@ -1,8 +1,13 @@
-export interface ImagesResponse {
+export interface TMDB_ImagesResponse {
   id: number;
   backdrops: ImageShape[];
   logos: ImageShape[];
   posters: ImageShape[];
+}
+
+export interface MyImagesResponse {
+  sizes: string[];
+  images: ImageShape[];
 }
 
 export interface ImageShape {

@@ -3,7 +3,7 @@ import {
   RQ_TVSHOWS_IMAGES_KEY,
 } from "@/app/constants";
 import APIClient from "@/app/services/tmdbApiClient";
-import { ImagesResponse } from "@/app/types/movies/ImagesResponse";
+import { TMDB_ImagesResponse } from "@/app/types/movies/ImagesResponse";
 import {
   HydrationBoundary,
   QueryClient,
@@ -23,7 +23,7 @@ const MainMovieLayout = async ({ children, params: { id } }: Props) => {
 
   const queryClient = new QueryClient();
 
-  const apiClientImages = new APIClient<ImagesResponse>(
+  const apiClientImages = new APIClient<TMDB_ImagesResponse>(
     RQ_TVSHOWS_IMAGES_ENDPOINT(id)
   );
   await queryClient.prefetchQuery({

@@ -1,7 +1,7 @@
 "use client";
 
 import { RQ_LANGUAGES_KEY } from "@/app/constants";
-import { ImageType, ImagesResponse } from "@/app/types/movies/ImagesResponse";
+import { ImageType, TMDB_ImagesResponse } from "@/app/types/movies/ImagesResponse";
 import { Language } from "@/app/types/movies/Language";
 import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
@@ -18,7 +18,7 @@ const MainMovieImagesFiltering = ({ id, type, languageParam, queryKey }: Props) 
     queryKey: [RQ_LANGUAGES_KEY],
   });
 
-  const { data } = useQuery<ImagesResponse>({
+  const { data } = useQuery<TMDB_ImagesResponse>({
     queryKey: [queryKey, id],
   });
 
