@@ -7,6 +7,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import ReactQueryProvider from "./ReactQueryProvider";
 import { Header } from "./components/Header";
+import { ConfigErrorToast } from "./components/client/ConfigErrorToast";
 import {
   RQ_CONFIG_ENDPOINT,
   RQ_CONFIG_KEY,
@@ -14,9 +15,8 @@ import {
   RQ_LANGUAGES_KEY,
 } from "./constants";
 import "./globals.css";
-import APIClient from "./services/tmdbApiClient";
+import MyAPIClient from "./services/myApiClient";
 import { TMDB_API_Configuration } from "./types/TMDB_API_Configuration";
-import { ConfigErrorToast } from "./components/client/ConfigErrorToast";
 import { Language } from "./types/movies/Language";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -33,15 +33,18 @@ export default async function RootLayout({
 }) {
   const queryClient = new QueryClient();
 
-  const apiClientConfig = new APIClient<TMDB_API_Configuration>(
+  const apiClientConfig = new MyAPIClient<TMDB_API_Configuration>(
     RQ_CONFIG_ENDPOINT
   );
+  // const apiClientConfig = new APIClient<TMDB_API_Configuration>(
+  //   RQ_CONFIG_ENDPOINT
+  // );
   await queryClient.prefetchQuery({
     queryKey: [RQ_CONFIG_KEY],
     queryFn: () => apiClientConfig.getAll(),
   });
 
-  const apiClientLanguages = new APIClient<Language[]>(RQ_LANGUAGES_ENDPOINT);
+  const apiClientLanguages = new MyAPIClient<Language[]>(RQ_LANGUAGES_ENDPOINT);
   await queryClient.prefetchQuery({
     queryKey: [RQ_LANGUAGES_KEY],
     queryFn: () => apiClientLanguages.getAll(),

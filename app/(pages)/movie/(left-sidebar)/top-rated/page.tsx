@@ -3,7 +3,7 @@ import {
   RQ_TOP_RATED_MOVIES_ENDPOINT,
   RQ_TOP_RATED_MOVIES_KEY,
 } from "@/app/constants";
-import APIClient from "@/app/services/tmdbApiClient";
+import MyAPIClient from "@/app/services/myApiClient";
 import { QueryParams } from "@/app/types/QueryParams";
 import { MoviesResponse } from "@/app/types/movies/movie/MoviesResponse";
 import moviesFetchConfig from "@/app/utils/moviesFetchConfig";
@@ -32,7 +32,7 @@ const TopRatedMoviesPage = async ({
     sort_by
   );
 
-  const apiClient = new APIClient<MoviesResponse>(RQ_TOP_RATED_MOVIES_ENDPOINT);
+  const apiClient = new MyAPIClient<MoviesResponse>(RQ_TOP_RATED_MOVIES_ENDPOINT);
 
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery({

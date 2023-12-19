@@ -6,7 +6,7 @@ import { ProductionCountry } from "../ProductionCountry";
 export interface MovieResponse {
   adult: boolean;
   backdrop_path: string;
-  belongs_to_collection: null; // check collection to create a type
+  belongs_to_collection: null; // TODO: check collection to create a type - 155 (The Dark Knight) has a colection
   budget: number;
   genres: Genre[];
   homepage: string;

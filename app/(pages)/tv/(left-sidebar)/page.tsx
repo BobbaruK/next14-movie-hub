@@ -3,7 +3,7 @@ import {
   RQ_POPULAR_TVSHOWS_ENDPOINT,
   RQ_POPULAR_TVSHOWS_KEY,
 } from "@/app/constants";
-import APIClient from "@/app/services/tmdbApiClient";
+import MyAPIClient from "@/app/services/myApiClient";
 import { QueryParams } from "@/app/types/QueryParams";
 import { TVShowsResponse } from "@/app/types/movies/tv/TVShowsResponse";
 import moviesFetchConfig from "@/app/utils/moviesFetchConfig";
@@ -34,7 +34,7 @@ const PopularTVShowsPage = async ({
     sort_by
   );
 
-  const apiClient = new APIClient<TVShowsResponse>(RQ_POPULAR_TVSHOWS_ENDPOINT);
+  const apiClient = new MyAPIClient<TVShowsResponse>(RQ_POPULAR_TVSHOWS_ENDPOINT);
 
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery({

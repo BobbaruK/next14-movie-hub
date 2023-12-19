@@ -3,7 +3,7 @@ import {
   RQ_TOP_RATED_TVSHOWS_ENDPOINT,
   RQ_TOP_RATED_TVSHOWS_KEY,
 } from "@/app/constants";
-import APIClient from "@/app/services/tmdbApiClient";
+import MyAPIClient from "@/app/services/myApiClient";
 import { QueryParams } from "@/app/types/QueryParams";
 import { TVShowsResponse } from "@/app/types/movies/tv/TVShowsResponse";
 import moviesFetchConfig from "@/app/utils/moviesFetchConfig";
@@ -33,7 +33,7 @@ const TopRatedTVShowsPage = async ({
     sort_by
   );
 
-  const apiClient = new APIClient<TVShowsResponse>(
+  const apiClient = new MyAPIClient<TVShowsResponse>(
     RQ_TOP_RATED_TVSHOWS_ENDPOINT
   );
 

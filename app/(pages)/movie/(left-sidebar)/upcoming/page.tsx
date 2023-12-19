@@ -3,7 +3,7 @@ import {
   RQ_UPCOMING_MOVIES_ENDPOINT,
   RQ_UPCOMING_MOVIES_KEY,
 } from "@/app/constants";
-import APIClient from "@/app/services/tmdbApiClient";
+import MyAPIClient from "@/app/services/myApiClient";
 import { QueryParams } from "@/app/types/QueryParams";
 import { MoviesResponse } from "@/app/types/movies/movie/MoviesResponse";
 import moviesFetchConfig from "@/app/utils/moviesFetchConfig";
@@ -33,7 +33,9 @@ const UpcomingMoviesPage = async ({
     sort_by
   );
 
-  const apiClient = new APIClient<MoviesResponse>(RQ_UPCOMING_MOVIES_ENDPOINT);
+  const apiClient = new MyAPIClient<MoviesResponse>(
+    RQ_UPCOMING_MOVIES_ENDPOINT
+  );
 
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery({

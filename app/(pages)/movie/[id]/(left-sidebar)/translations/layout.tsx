@@ -2,7 +2,7 @@ import {
   RQ_MOVIE_TRANSLATIONS_ENDPOINT,
   RQ_MOVIE_TRANSLATIONS_KEY,
 } from "@/app/constants";
-import APIClient from "@/app/services/tmdbApiClient";
+import MyAPIClient from "@/app/services/myApiClient";
 import { TMDB_TranslationsResponse } from "@/app/types/movies/TranslationsResponse";
 import { MovieTranslationData } from "@/app/types/movies/movie/MovieTranslationData";
 import {
@@ -27,7 +27,7 @@ const MainMovieTranslationsLayout = async ({
 
   const queryClient = new QueryClient();
 
-  const apiClientTranslations = new APIClient<
+  const apiClientTranslations = new MyAPIClient<
     TMDB_TranslationsResponse<MovieTranslationData>
   >(RQ_MOVIE_TRANSLATIONS_ENDPOINT(id));
   await queryClient.prefetchQuery({
